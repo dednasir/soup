@@ -1,0 +1,79 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+
+<div id="maincontent"> 
+<h2 class="title">Already Registered?</h2>
+	#{ifErrors}
+	   <h1><span class="error">Oops. Please Correct the Information..</span></h1>
+	#{/ifErrors}
+	 #{form @Application.check() , id:'creationForm'}
+		<fieldset>
+			<label>E-mail Address</label><br />
+			<input type="text"  class="text-input" name="email"/><span class="error">#{error 'name' /}</span><br />
+			<label>Password</label><br />
+			<input type="password" class="text-input" name="password"/><span class="error">#{error 'password' /}</span><br /><br />
+			<input type="submit" class="button but-red" value="Account login" />
+	    </fieldset>
+    #{/form}
+    </br>
+	<a href="@{index()}">Forgot Your Passowrd</a></br>
+	
+	<a href="@{Application.register()}">Create Account</a></br>
+	
+</div>
+
+<!-- 			<div id="side"> -->
+<!-- 				<ul> -->
+<!-- 					<li class="widget-container"> -->
+<!--                         <ul> -->
+<!--                             <li><a href="login.html">Sign In</a></li> -->
+<!--                             <li><a href="orderhistory.html">Order History</a></li> -->
+<!--                             <li><a href="#">Edit</a></li> -->
+<!--                         </ul> -->
+<!-- 					</li> -->
+<!-- 				</ul> -->
+<!-- 			</div>end #side -->
+            
+<!-- 			<div id="maincontent"> -->
+<!-- 				<h2 class="pagetitle">Sign In</h2> -->
+
+<!--                 <div id="login-process"> -->
+<!-- 				<span class="first">&nbsp;</span> -->
+<!-- 				<span>Registration</span> -->
+<!-- 				<span class="active"> Login</span> -->
+<!-- 				<span> Make up soup</span> -->
+<!-- 				<span> Payment</span> -->
+<!-- 				 <span class="last"> Delivery</span> -->
+<!-- 				 <div class="clear"></div> -->
+<!-- 				</div> -->
+<!-- 				<br /><br /><br /> -->
+				
+<!--                 <h2 class="title">Create your account</h2> -->
+<!--                 <p>Enter your email address to create an account.</p> -->
+<!--                 <form method="post" action="" id="loginform1"> -->
+<!--                 <fieldset> -->
+<!--                 <label>E-mail Address</label><br /> -->
+<!--                 <input type="text"  class="text-input"/><br /> -->
+<!--                 <input type="button" class="button but-red" value="Create your account" /> -->
+<!--                 </fieldset> -->
+<!--                 </form> -->
+<!--                 <br /> -->
+<!--                 <br /> -->
+
+<!--                 <h2 class="title">Already Registered?</h2> -->
+<!--                 <form method="post" action="" id="loginform"> -->
+<!--                 <fieldset> -->
+<!--                 <label>E-mail Address</label><br /> -->
+<!--                 <input type="text"  class="text-input"/><br /> -->
+<!--                 <label>Password</label><br /> -->
+<!--                 <input type="text" class="text-input" /><br /> -->
+<!--                 <input type="button" class="button but-red" value="login" /> -->
+<!--                 </fieldset> -->
+<!--                 </form> -->
+	
+<!-- 				<div class="clear"></div>clear float -->
+<!-- 			</div>end #maincontent -->
+            
+            
+            <div class="clear"></div><!-- clear float -->
+		

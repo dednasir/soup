@@ -1,0 +1,105 @@
+#{extends 'main.html' /}
+#{set title:'Blog Post' /}
+			<div id="maincontent">
+                <h2 class="pagetitle">Our Product</h2>
+                <div class="post">
+                	<ul class="entry-utility">
+                    	<li class="i-user">Post by: <a href="#">Admin</a></li>  
+                        <li class="i-comm"><a href="#">10 Comments</a></li>  
+                        <li class="i-tag"><a href="#">Photography</a></li>
+                    </ul>
+                    <div class="post-shadow">
+                    <img src="@{'/public/images/content/post1.jpg'}" alt="" />
+                    </div>
+                    <span class="postdate">June 28, 2012</span> 
+                    <h2 class="posttitle"><a href="single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </a></h2>
+
+                    <div class="entry-content">
+                        <p>Fusce malesuada urna nec quam rhoncus sodales. In iaculis augue augue. Fusce imperdiet placerat dictum. Mauris mauris quam, pretium sollicitudin congue eu, malesuada non dui. Sed nec arcu quis nisl rhoncus vestibulum. Quisque facilisis imperdiet rhoncus. Nam porta libero id orci ornare id pellentesque sapien suscipit. Vivamus non dapibus sapien. Fusce pellentesque, augue eget euismod scelerisque, diam justo accumsan odio, non bibendum justo risus et nisl.</p>
+                        <p>Fusce malesuada urna nec quam rhoncus sodales. In iaculis augue augue. Fusce imperdiet placerat dictum. Mauris mauris quam, pretium sollicitudin congue eu, malesuada non dui. Sed nec arcu quis nisl rhoncus vestibulum. Quisque facilisis imperdiet rhoncus. Nam porta libero id orci ornare id pellentesque sapien suscipit. Vivamus non dapibus sapien. Fusce pellentesque, augue eget euismod scelerisque, diam justo accumsan odio, non bibendum justo risus et nisl.</p>
+                    </div><!-- end .entry-content -->
+              </div><!-- end .post1 -->
+              
+                <div id="comment">
+					<h2>Comments</h2>
+					<ol class="commentlist">
+						<li>
+							<div class="comment-body">
+							<img src="@{'/public/images/content/avatar1.jpg'}" alt="" class="avatar"/>
+							<span class="tuser">Customer 1</span><br />
+							<span class="com-date">June 17, 2010 7:15 am</span><br /><br />
+							<p>Nulla lobortis facilisis eros vitae mollis. Morbi consectetur, tortor ut feugiat rhoncus, nunc augue placerat massa, sit amet laoreet est libero quis nisl. Integer cursus sodales sem eu dapibus. Morbi lobortis eleifend lectus sit amet porttitor. Nam tincidunt congue laoreet.</p>
+							<a href="#" class="more">Reply</a>
+							</div>
+						</li>
+						<li>
+							<div class="comment-body">
+							<img src="@{'/public/images/content/avatar2.jpg'}" alt="" class="avatar"/>
+							<span class="tuser">Customer 2</span><br />
+							<span class="com-date">June 17, 2010 7:15 am</span><br /><br />
+							<p>Nulla lobortis facilisis eros vitae mollis. Morbi consectetur, tortor ut feugiat rhoncus, nunc augue placerat massa, sit amet laoreet est libero quis nisl. Integer cursus sodales sem eu dapibus. Morbi lobortis eleifend lectus sit amet porttitor. Nam tincidunt congue laoreet.</p>
+							<a href="#" class="more">Reply</a>
+							</div>
+							<ol>
+								<li>
+									<div class="comment-body">
+									<img src="@{'/public/images/content/avatar1.jpg'}" alt="" class="avatar"/>
+									<span class="tuser">Customer 3</span><br />
+									<span class="com-date">June 17, 2010 7:15 am</span><br /><br />
+									<p>Nulla lobortis facilisis eros vitae mollis. Morbi consectetur, tortor ut feugiat rhoncus, nunc augue placerat massa, sit amet laoreet est libero quis nisl. Integer cursus sodales sem eu dapibus. Morbi lobortis eleifend lectus sit amet porttitor. Nam tincidunt congue laoreet.</p>
+									<a href="#" class="more">Reply</a>
+									</div>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<div class="comment-body">
+							<img src="@{'/public/images/content/avatar3.jpg'}" alt="" class="avatar"/>
+							<span class="tuser">Customer 4</span><br />
+							<span class="com-date">June 17, 2010 7:15 am</span><br /><br />
+							<p>Nulla lobortis facilisis eros vitae mollis. Morbi consectetur, tortor ut feugiat rhoncus, nunc augue placerat massa, sit amet laoreet est libero quis nisl. Integer cursus sodales sem eu dapibus. Morbi lobortis eleifend lectus sit amet porttitor. Nam tincidunt congue laoreet.</p>
+							<a class="more" href="#">Reply</a>
+							</div>
+						</li>
+					</ol>
+					<h2>Leave Comment</h2>
+					  <form id="commentform" action="">
+						<fieldset>
+						  <label for="name" id="name_label">Name:</label>
+						  <input type="text" name="name" id="name" size="50" value="" class="text-input" />
+						  <label for="email" id="email_label">Email:</label>
+						  <input type="text" name="email" id="email" size="50" value="" class="text-input" />
+						  <label for="msg" id="msg_label">Message:</label>
+						 <textarea cols="60" rows="10" name="msg" id="msg" class="textarea"></textarea><br />
+						  <input type="submit" name="submit" class="button" id="submit_btn" value="Submit"/>
+						</fieldset>
+		
+					  </form>
+				</div>
+                
+                <div class="clear"></div><!-- clear float -->
+			</div><!-- end #maincontent-->
+            
+            <div id="side">
+				<ul>
+					<li class="widget-container">
+                        <h2 class="widget-title">Recent Post</h2>
+                        <ul>
+                            <li><a href="#">Soups</a></li>
+                            <li><a href="#">Soups</a></li>
+                            <li><a href="#">Soups</a></li>
+                            <li><a href="#">Soups</a></li>
+                        </ul>
+					</li>
+					<li class="widget-container">
+                        <h2 class="widget-title">Archives</h2>
+                        <ul>
+                            <li><a href="#">June 2012</a></li>
+                            <li><a href="#">June 2012</a></li>
+                            <li><a href="#">June 2012</a></li>
+                            <li><a href="#">June 2012</a></li>
+                        </ul>
+					</li>
+				</ul>
+			</div><!-- end #side-->
+            <div class="clear"></div><!-- clear float -->

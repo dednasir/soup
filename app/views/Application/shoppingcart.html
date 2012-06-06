@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+#{set title:'Shopping Cart' /}
+				<h2 class="pagetitle">Shopping Cart</h2>
+					<table id="Buying-cart">
+						<tbody>
+						<tr>
+						<th style="width:150px; text-align:left;">Products</th>
+						<th>Price</th>
+						<th style="width:150px;">Quantity</th>
+                        <th></th>
+						<th style="text-align:right;">Total</th>
+						</tr>
+						<tr class="even">
+							<td><img src="@{'/public/images/content/pic6.jpg'}" alt="" /><br />Soup 1</td>
+							<td><span class="unit-price">€ 0,00</span></td>
+						  	<td><input type="text"  size="3" value="1"/></td>
+                            <td style="text-align:left;"><a href="#">Remove</a></td>
+							<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
+						</tr>
+						<tr class="even">
+							<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />Soup 1 Ingredient 1</td>
+							<td><span class="unit-price">€ 0,00</span></td>
+						  	<td><input type="text"  size="3" value="1"/></td>
+                            <td style="text-align:left;"><a href="#">Remove</a></td>
+							<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
+						</tr>
+						<tr class="even">
+							<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />Soup 1 Ingredient 2</td>
+							<td><span class="unit-price">€ 0,00</span></td>
+						  	<td><input type="text"  size="3" value="1"/></td>
+                            <td style="text-align:left;"><a href="#">Remove</a></td>
+							<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
+						</tr>
+						<tr class="even">
+							<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />Soup 1 Ingredient 3</td>
+							<td><span class="unit-price">€ 0,00</span></td>
+						  	<td><input type="text"  size="3" value="1"/></td>
+                            <td style="text-align:left;"><a href="#">Remove</a></td>
+							<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
+						</tr>
+						<tr class="even">
+							<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />Pack Size M</td>
+							<td><span class="unit-price">€ 0,00</span></td>
+						  	<td><input type="text"  size="3" value="1"/></td>
+                            <td style="text-align:left;"><a href="#">Remove</a></td>
+							<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
+						</tr>
+						</tbody>
+					</table>
+                    <ul class="total">
+                    	<li>Sub Total</li>
+                        <li>€ 0,00</li>
+                    </ul>
+					<div id="con-butcart">
+						<span class="alignright"><a href="checkout.html" class="more but-green">Checkout</a></span>
+						<a href="soups.html" class="more but-red">Make up new soup</a>
+						<div class="clear"></div>
+					</div>
+				<div class="clear"></div><!-- clear float -->
+	

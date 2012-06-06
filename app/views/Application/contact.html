@@ -1,0 +1,51 @@
+#{extends 'main.html' /}
+#{set title:'Contact' /}
+			<div id="maincontent">
+				<h2 class="title">Contact Us</h2>
+				<p>Cras lacus purus, fringilla nec adipiscing non, auctor at mauris. Fusce non enim lectus. Aenean velit odio, lobortis eget tincidunt eget, sollicitudin sit amet risus. Aliquam id magna justo. Morbi quis nulla quam. Fusce ornare nisi eget diam vulputate vulputate. Vestibulum vitae risus rutrum dui pellentesque elementum quis ut sapien. </p>
+
+					<div id="contactform">
+                      <form id="contact" action="">
+                        <fieldset>
+                            <label for="name" id="name_label">Your Name</label>
+                            <input type="text" name="name" id="name" size="50" value="" class="text-input" />
+                            <span class="error" id="name_error">Please enter name !</span>
+                            <label for="email" id="email_label">Your Email</label>
+                            <input type="text" name="email" id="email" size="50" value="" class="text-input" />
+							<span class="error" id="email_error">Please enter email address !</span>
+							<span class="error" id="email_error2">Please enter valid email address !</span>
+                            <label for="subject" id="subject_label">Subject</label>
+                            <input type="text" name="subject" id="subject"  value="" class="text-input" size="50" />
+                            <label for="msg" id="msg_label">Message</label>
+                            <textarea cols="10" rows="10" name="msg" id="msg" class="text-area"></textarea>
+							<span class="error" id="msg_error"><br />Please enter message !</span>
+                            <br /><br />
+                            <input type="submit" name="submit" class="button" id="submit_btn" value="Submit"/><br />
+							
+							</fieldset>
+                      </form>
+                    </div><!-- end #contactform -->
+                
+				<div class="clear"></div><!-- clear float -->
+			</div><!-- end #maincontent-->
+            
+            <div id="side">
+				<ul>
+					<li class="widget-container">
+							<h2 class="widget-title">Our Address</h2>
+                            <div class="imgglow">
+							<iframe width="294" height="180" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Technische+Universit%C3%A4t+M%C3%BCnchen,+Arcisstra%C3%9Fe+21,+M%C3%BCnchen,+Deutschland&amp;aq=&amp;sll=48.201013,11.617854&amp;sspn=0.263614,0.727158&amp;ie=UTF8&amp;hq=Technische+Universit%C3%A4t+M%C3%BCnchen,+Arcisstra%C3%9Fe+21,+M%C3%BCnchen,+Deutschland&amp;t=m&amp;ll=48.147763,11.567831&amp;spn=0.010308,0.025148&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Technische+Universit%C3%A4t+M%C3%BCnchen,+Arcisstra%C3%9Fe+21,+M%C3%BCnchen,+Deutschland&amp;aq=&amp;sll=48.201013,11.617854&amp;sspn=0.263614,0.727158&amp;ie=UTF8&amp;hq=Technische+Universit%C3%A4t+M%C3%BCnchen,+Arcisstra%C3%9Fe+21,+M%C3%BCnchen,+Deutschland&amp;t=m&amp;ll=48.147763,11.567831&amp;spn=0.010308,0.025148&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+    <br />
+<br />                        
+<p>Phone: +49 (0) 89<br />
+Fax: +49 (0) 89<br />
+Email: <a href="mailto:mail@souplove.de">mail@souplove.de</a><br />
+<br />
+
+Soup Love<br />
+Arcisstr. 21<br />
+80807 Munich</p>
+					</li>
+				</ul>
+			</div><!-- end #side-->
+            <div class="clear"></div><!-- clear float -->

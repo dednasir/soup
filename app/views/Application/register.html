@@ -1,0 +1,66 @@
+#{extends 'main.html' /}
+#{set title:'Register' /}
+
+
+<h2 class="title">Create your account</h2>
+#{ifErrors}
+   <h1><span class="error">Oops. Please Correct the Information..</span></h1>
+#{/ifErrors}
+
+ #{form @Application.saveUser() , id:'loginform'}
+	<fieldset>
+		#{field 'user.email'}
+			<p class="${field.errorClass}">
+				<label>E-mail Address</label><br />
+				<input type="text"  class="text-input" name="${field.name}" value="${user?.email}"/> *  
+				<span class="error">${field.error}</span> <br />
+			</p>
+		#{/field}
+		#{field 'user.Password'}
+			<p class="${field.errorClass}">
+				<label>Password</label><br />
+				<input type="password"  class="text-input" name="${field.name}" value="${user?.Password}"/> *  
+				<span class="error">${field.error}</span> <br />
+			</p>
+		#{/field} 
+		#{field 'verifyPassword'}
+			<p class="${field.errorClass}">
+				<label>Verify Password</label><br />
+				<input type="password"  class="text-input" name="${field.name}" value="${verifyPassword}"/> *  
+				<span class="error">${field.error}</span> <br />
+			</p>
+		#{/field}
+		#{field 'user.FirstName'}
+			<p class="${field.errorClass}">
+				<label>First Name</label><br />
+				<input type="text"  class="text-input" name="${field.name}" value="${user?.FirstName}"/> *  
+				<span class="error">${field.error}</span> <br />
+			</p>
+		#{/field}
+		#{field 'user.LastName'}
+			<p class="${field.errorClass}">
+				<label>Last Name</label><br />
+				<input type="text"  class="text-input" name="${field.name}" value="${user?.LastName}"/> *  
+				<span class="error">${field.error}</span> <br />
+			</p>
+		#{/field}
+		#{field 'user.ZipCode'}
+			<p class="${field.errorClass}">
+				<label>ZipCode</label><br />
+				<input type="text"  class="text-input" name="${field.name}" value="${user?.ZipCode}"/> *  
+				<span class="error">${field.error}</span> <br />
+			</p>
+		#{/field}
+		#{field 'user.Street'}
+			<p class="${field.errorClass}">
+				<label>Street</label><br />
+				<input type="text"  class="text-input" name="${field.name}" value="${user?.Street}"/> *  
+				<span class="error">${field.error}</span> <br />
+			</p>
+		#{/field}
+		
+		<input type="submit" class="button but-red" value="Create your account" />
+	</fieldset>
+#{/form}
+<br />
+<br />

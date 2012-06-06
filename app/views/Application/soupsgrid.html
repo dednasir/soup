@@ -1,0 +1,83 @@
+#{extends 'main.html' /}
+#{set title:'Soup Grid' /}
+			<div id="maincontent">
+				<h2 class="pagetitle">Product Photos</h2>
+
+                <ul id="product-grid">
+                    <li>
+                        <div class="product-grid-img">
+                            <a href="product-details.html"><img src="@{'/public/images/content/pf/pf2_1.jpg'}" alt=""/></a>
+                        </div>
+                        <a href="product-details.html">Product Photo 1 </a>
+                    </li>
+                    <li class="nomargin">
+                        <div class="product-grid-img">
+                            <a href="product-details.html"><img src="@{'/public/images/content/pf/pf2_2.jpg'}" alt="" /></a>	
+                        </div>
+                        <a href="product-details.html">Product Photo 2 </a>
+                    </li>
+                    <li>
+                        <div class="product-grid-img">
+                            <a href="product-details.html"><img src="@{'/public/images/content/pf/pf2_3.jpg'}" alt="" /></a>	
+                        </div>
+                        <a href="product-details.html">Product Photo 3 </a>
+                    </li>
+                    <li class="nomargin">
+                        <div class="product-grid-img">
+                            <a href="product-details.html"><img src="@{'/public/images/content/pf/pf2_4.jpg'}" alt=""/></a>
+                        </div>
+                        <a href="product-details.html">Product Photo 4 </a>
+                    </li>
+                    <li>
+                        <div class="product-grid-img">
+                            <a href="product-details.html"><img src="@{'/public/images/content/pf/pf2_5.jpg'}" alt="" /></a>	
+                        </div>
+                        <a href="product-details.html">Product Photo 5 </a>
+                    </li>
+                    <li class="nomargin">
+                        <div class="product-grid-img">
+                            <a href="product-details.html"><img src="@{'/public/images/content/pf/pf2_6.jpg'}" alt="" /></a>	
+                        </div>
+                        <a href="product-details.html">Product Photo 6 </a>
+                    </li>
+                </ul>
+	
+                <div class="pagenavi">
+                   <a href="" class="page">Previous</a><a href="" class="current">Next</a>
+                </div><!-- end pagenavi -->
+
+				<div class="clear"></div><!-- clear float -->
+			</div><!-- end #maincontent-->
+            
+            <div id="side">
+				<ul>
+					<li class="widget-container">
+							<h2 class="widget-title">Product Description</h2>
+                            <p>Praesent gravida, sapien eget ultrices facilisis, neque dolor scelerisque odio, quis blandit ligula nunc et magna. Donec dolor elit, volutpat vitae fringilla sed, auctor et ligula. Aenean tempor vehicula tincidunt. Cras convallis dapibus odio, at pulvinar justo vulputate et.</p>
+                          	
+							<h5 class="title-desc">Refinements:</h5>
+							<form>
+							<input type="checkbox" name="refinements" value="Paprika" /> Paprika<br />
+							<input type="checkbox" name="refinements" value="Onions" /> Onions<br />
+							<input type="checkbox" name="refinements" value="Breadcrumbs" /> Breadcrumbs
+							</form>
+							<br />
+
+                            <h5 class="title-desc">Size:</h5>
+							<form>
+							<input type="checkbox" name="size" value="Small" checked/> Small<br />
+							<input type="checkbox" name="size" value="Medium" /> Medium<br />
+							<input type="checkbox" name="size" value="Large" /> Large
+							</form>
+							<br />    
+                            
+                            <h5 class="title-desc">Price:</h5>
+                            € 0,00<br /><br />
+
+							<a href="#" class="more">Add to Wishlist</a>
+
+
+					</li>
+				</ul>
+			</div><!-- end #side-->
+            <div class="clear"></div><!-- clear float -->
