@@ -182,7 +182,7 @@ span.com-date{ font-size:10px; font-style:italic;}
 .comment-body p{margin-bottom:10px;}
 .comment-body{margin:0 0 0 90px; padding:0px 0px 10px 0px; border-bottom:1px solid #eaeaea;}
 #commentform label{display:block;}
-#commentform .text-input{
+#commentform .text-input, #loginform .text-input, #creationForm .text-input {
 	margin-bottom:8px;
 	padding:8px 5px;
 	vertical-align:middle;
@@ -194,8 +194,8 @@ span.com-date{ font-size:10px; font-style:italic;}
 	vertical-align:top;
 	background-color:#f5f5f5!important;
 }
-
-
+#creationForm .text-input{width:50%;}
+#loginform .text-input{width:50%;}
 /* CONTACT */
 form{margin:0; padding:0;}
 fieldset{border:0px;}
@@ -208,6 +208,7 @@ span.error{color:red;text-align:left; font-size:11px;}
 	vertical-align:middle;
 	background-color:#f5f5f5!important;
 }
+
 #contactform .text-input{width:50%;}
 #contactform .text-area{width:80%;}
 #message{ margin-left:0px;}

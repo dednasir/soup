@@ -896,3 +896,24 @@ h2.active {background-position: left bottom;}
 	margin: 5px 0;
 }
 
+
+
+form p.field {
+    text-align: left;
+    margin: 0 0 5px 0;
+}
+
+form p {
+    clear: both;
+    text-align: left;
+    margin: 7px 0;
+    min-height: 15px;
+}
+
+form p.hasError {
+    color: #c00;
+}
+
+form .hasError .error {
+    font-size: 80%;
+}

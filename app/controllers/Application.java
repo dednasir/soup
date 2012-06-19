@@ -52,7 +52,7 @@ public class Application extends Controller {
         if(user != null) {
             session.put("user", user.FirstName);
             String fullname = user.toString();
-            renderTemplate("@Application.checkUser",fullname);
+            renderTemplate("@Application.index",fullname);
         }
         play.data.validation.Error error = validation.required(user).error;
         if(error != null) {
@@ -64,23 +64,28 @@ public class Application extends Controller {
 
     }
     
-    public static void saveUser(@Valid SoupUser user, String verifyPassword) {
+    public static void saveUser(@Valid SoupUser users, String verifyPassword ,String email) {
         validation.required(verifyPassword);
-        validation.equals(verifyPassword, user.Password).message("Your password doesn't match");
-        SoupUser objUser = SoupUser.UserExist(user.email);
+        validation.equals(verifyPassword, users.Password).message("Your password doesn't match");
+        SoupUser objUser = SoupUser.UserExist(users.email);
+       
         if(objUser != null) {
-            validation.equals(user.email, objUser.email).message("Email ID already registered");
+            if(validation.equals(email, objUser.email) != null)
+            {
+                validation.addError(email, "User already exists");
+                validation.keep();
+                render("@Application.register", users, verifyPassword);
+            }
         }
         if(validation.hasErrors()) {
-            render("@Application.register", user, verifyPassword);
+            //validation.keep();
+            render("@Application.register", users, verifyPassword);
         }
         
-        if(objUser != null) {
-            Application.register();
-        }
-        user.create();
-        session.put("user", user.toString());
-        String fullname = user.toString();
+
+        users.create();
+        session.put("user", users.toString());
+        String fullname = users.toString();
         //flash.success("Welcome, " + user.fullname);
         renderTemplate("@Application.index",fullname);
     }

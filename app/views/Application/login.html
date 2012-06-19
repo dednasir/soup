@@ -6,13 +6,15 @@
 	#{ifErrors}
 	   <h1><span class="error">Oops. Please Correct the Information..</span></h1>
 	#{/ifErrors}
-	 #{form @Application.check() , id:'creationForm'}
+	 #{form @check() , id:'creationForm'}
 		<fieldset>
 			<label>E-mail Address</label><br />
-			<input type="text"  class="text-input" name="email"/><span class="error">#{error 'name' /}</span><br />
+			<input type="text"  class="text-input" name="email" value="${flash.email}"/>
+			<span>#{error 'email' /}</span><br />
 			<label>Password</label><br />
-			<input type="password" class="text-input" name="password"/><span class="error">#{error 'password' /}</span><br /><br />
-			<input type="submit" class="button but-red" value="Account login" />
+			<input type="password" class="text-input" name="password" value="${flash.password}"/>
+			<span>#{error 'password' /}</span><br /><br />
+			<input type="submit" value="Account login" />
 	    </fieldset>
     #{/form}
     </br>
