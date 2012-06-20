@@ -20,4 +20,39 @@ SoupUser(jeff):
     Street:         Amshaferanger
     isAdmin:        true
     
+BaseSoup(tomato):
+    Name:           Tomato   
+    Description:    this is a soup it is very good soup
+    value:          10
+    SoupID:         1
+    
+BaseSoup(mushroom):
+    Name:           Mushroom   
+    Description:    this is a soup it is very good soup
+    value:          3
+    SoupID:         2
+
+BaseSoup(asparagus):
+    Name:           Asparagus Cream  
+    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
+    value:          5
+    SoupID:         3
+ 
+SoupIngredients(paprika):
+    Name:           Paprika   
+    Description:    this is a soup it is very good soup
+    value:          10
+    IngID:             1
+    
+SoupIngredients(Onions):
+    Name:           Onions   
+    Description:    this is a soup it is very good soup
+    value:          3
+    IngID:             2
+
+SoupIngredients(BreadCrumbs):
+    Name:           BreadCrumbs  
+    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas.
+    value:          5
+    IngID:          3
                  

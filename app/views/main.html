@@ -68,13 +68,20 @@
             	<div id="top-frame">
 
                     <ul class="top-nav">
-<<<<<<< HEAD
-<!--                         <li><a href="#">Help</a></li> -->
-                        <li><a href="@{Application.login}">My Account</a></li>
-=======
+                    %{
+                    	if(session.get("user") != null)
+   							fullName = true;
+   						else
+   							fullname = false;
+					}%
+ 
+ 					#{if !fullname}
+	   					<li><a href="/login.php">My Account</a></li>
+					#{/if}
+                    #{else}
+	   					<li><a href="/logout.php">logout</a></li>
+					#{/else}    
                         <li><a href="#">Help</a></li>
-                        <li><a href="@{Application.register}">My Account</a></li>
->>>>>>> e7d10d38dbe727c427a713d18c9c5538b0e1ebb8
 						<li><a href="@{Application.shoppingcart}">Shopping Cart</a></li>
                     </ul>
 					
@@ -83,7 +90,6 @@
 						<li class="uk"><a href="http://uk.souplove.de">uk.souplove.de</a></li>
 						<li class="de"><a href="http://www.souplove.de">www.souplove.de</a></li>
 					</ul>
-
                 </div>
                 <div class="clear"></div>
 				<div id="navigation">

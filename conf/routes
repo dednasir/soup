@@ -5,6 +5,23 @@
 # Home page
 GET     /                                       Application.index
 
+# Creating a soup
+GET     /BaseSoup/{id}                          Application.CreateBaseSoup(id)
+
+GET     /SoupIngredient/{id}                    Application.AddBaseIngredient(id)
+
+GET     /SoupSize/{id}                          Application.AddPacketSize(id)
+
+GET     /RemoveIngredient/{id}                  Application.RemoveIngredient(id)
+
+GET     /RemoveSoup/{id}                        Application.RemoveSoup(id)
+
+# login
+GET     /login.php                              Application.login
+
+# logout
+GET     /logout.php                             Application.logout
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

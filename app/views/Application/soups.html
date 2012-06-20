@@ -1,56 +1,32 @@
 #{extends 'main.html' /}
 #{set title:'Soups' /}
 
-
+#{if errorMSG}
+	<h1 style="color:red;">${errorMSG}!</h1>   
+#{/if}
 
 	<div id="slidedeck_frame" class="skin-slidedeck">
            <dl class="slidedeck">
 
                <dt>Soup Base › Choose a soup</dt>
                <dd>
-				<ul class="slidesVertical">
-                       <li class="case">				
-                           <div class="case_image">
-                               <img src="@{'/public/images/slidedeck-home-images/soupbase_tomatosoup_image.png'}" alt="jquery accordion"/>
-                           </div>
-                           <div class="case_text">
-                               <h4 class="title">Tomato soup</h4>
-                               <p class="sub">subtitle</p>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
-							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
-	                        </ul>
-                           </div>
-                       </li>
-
-					<li class="case">				
-                           <div class="case_image">
-                               <img src="@{'/public/images/slidedeck-home-images/soupbase_mushroomsoup_image.png'}" alt="jquery accordion"/>
-                           </div>
-                           <div class="case_text">
-                               <h4 class="title">Mushroom soup</h4>
-                               <p class="sub">subtitle</p>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
-							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
-	                        </ul>
-                           </div>
-                       </li>
-
-					<li class="case">				
-                           <div class="case_image">
-                               <img src="@{'/public/images/slidedeck-home-images/soupbase_asparaguscreamsoup_image.png'}" alt="jquery accordion"/>
-                           </div>
-                           <div class="case_text">
-                               <h4 class="title">Asparagus cream soup</h4>
-                               <p class="sub">subtitle</p>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
-							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
-	                        </ul>
-                           </div>
-                       </li>
-
+					<ul class="slidesVertical">
+						#{list items:bs, as:'base'}
+		                      <li class="case">				
+		                      	 <div class="case_image">
+		                               <img src="@{'/public/images/slidedeck-home-images/soupbase_tomatosoup_image.png'}" alt="jquery accordion"/>
+		                           </div>
+		                           <div class="case_text">
+		                               <h4 class="title">${base.Name} Soup</h4>
+		                               <p class="sub">subtitle</p>
+		                               <p>${base.Description}</p>
+		                               <p>${base.SoupID}</p>
+									<ul class="button-cart">
+			                        	<li><a href="@{Application.CreateBaseSoup(base.SoupID)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+			                        </ul>
+		                           </div>
+		                       </li>
+						#{/list}
                    </ul>
 
                    <a href="#previous" class="vertical-prev-next previous">Previous</a>
@@ -59,48 +35,22 @@
                <dt>Ingredients › Choose ingredients</dt>
                <dd>
 				<ul class="slidesVertical">
-                       <li class="case">				
-                           <div class="case_image">
-                               <img src="@{'/public/images/slidedeck-home-images/ingredients_paprika_image.png'}" alt="jquery accordion"/>
-                           </div>
-                           <div class="case_text">
-                               <h4 class="title">Paprika</h4>
-                               <p class="sub">subtitle</p>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
-							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
-	                        </ul>
-                           </div>
-                       </li>
-
-					<li class="case">				
-                           <div class="case_image">
-                               <img src="@{'/public/images/slidedeck-home-images/ingredients_onions_image.png'}" alt="jquery accordion"/>
-                           </div>
-                           <div class="case_text">
-                               <h4 class="title">Onions</h4>
-                               <p class="sub">subtitle</p>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
-							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
-	                        </ul>
-                           </div>
-                       </li>
-
-					<li class="case">				
-                           <div class="case_image">
-                               <img src="@{'/public/images/slidedeck-home-images/ingredients_breadcrumbs_image.png'}" alt="jquery accordion"/>
-                           </div>
-                           <div class="case_text">
-                               <h4 class="title">Breadcrumbs</h4>
-                               <p class="sub">subtitle</p>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
-							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
-	                        </ul>
-                           </div>
-                       </li>
-
+                       #{list items:si, as:'ingredient'}
+		                      <li class="case">				
+		                      	 <div class="case_image">
+		                               <img src="@{'/public/images/slidedeck-home-images/soupbase_tomatosoup_image.png'}" alt="jquery accordion"/>
+		                           </div>
+		                           <div class="case_text">
+		                               <h4 class="title">${ingredient.Name}</h4>
+		                               <p class="sub">subtitle</p>
+		                               <p>${ingredient.Description}</p>
+		                               <p>${ingredient.IngID}</p>
+									<ul class="button-cart">
+			                        	<li><a href="@{Application.AddBaseIngredient(ingredient.IngID)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+			                        </ul>
+		                           </div>
+		                       </li>
+						#{/list}
                    </ul>
 
                    <a href="#previous" class="vertical-prev-next previous">Previous</a>
@@ -118,7 +68,7 @@
                                <p class="sub">subtitle</p>
                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
 							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+	                        	<li><a href="@{Application.AddPacketSize(3)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 	                        </ul>
                            </div>
                        </li>
@@ -132,7 +82,7 @@
                                <p class="sub">subtitle</p>
                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
 							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+	                        	<li><a href="@{Application.AddPacketSize(2)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 	                        </ul>
                            </div>
                        </li>
@@ -146,7 +96,7 @@
                                <p class="sub">subtitle</p>
                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
 							<ul class="button-cart">
-	                        	<li><a href="#" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+	                        	<li><a href="@{Application.AddPacketSize(1)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 	                        </ul>
                            </div>
                        </li>
@@ -170,41 +120,34 @@
                        <th></th>
 					<th style="text-align:right;"></th>
 					</tr>
-					<tr class="even">
-						<td>Soup 1</td>
-						<td><span class="unit-price"></span></td>
-					  	<td><input type="text"  size="3" value=""/></td>
-                           <td style="text-align:left;"><a href="#">Remove</a></td>
-						<td style="text-align:right;"><span class="subtotal-price"></span></td>
-					</tr>
-					<tr class="even">
-						<td>Soup 1 Ingredient 1</td>
-						<td><span class="unit-price"></span></td>
-					  	<td><input type="text"  size="3" value=""/></td>
-                           <td style="text-align:left;"><a href="#">Remove</a></td>
-						<td style="text-align:right;"><span class="subtotal-price"></span></td>
-					</tr>
-					<tr class="even">
-						<td>Soup 1 Ingredient 2</td>
-						<td><span class="unit-price"></span></td>
-					  	<td><input type="text"  size="3" value=""/></td>
-                           <td style="text-align:left;"><a href="#">Remove</a></td>
-						<td style="text-align:right;"><span class="subtotal-price"></span></td>
-					</tr>
-					<tr class="even">
-						<td>Soup 1 Ingredient 3</td>
-						<td><span class="unit-price"></span></td>
-					  	<td><input type="text"  size="3" value=""/></td>
-                           <td style="text-align:left;"><a href="#">Remove</a></td>
-						<td style="text-align:right;"><span class="subtotal-price"></span></td>
-					</tr>
-					<tr class="even">
-						<td>Pack Size M</td>
-						<td><span class="unit-price"></span></td>
-					  	<td><input type="text"  size="3" value=""/></td>
-                           <td style="text-align:left;"><a href="#">Remove</a></td>
-						<td style="text-align:right;"><span class="subtotal-price"></span></td>
-					</tr>
+					#{if cachedSoup}
+						<tr class="even">
+							<td>${cachedSoup.SoupName} Soup </td>
+							<td><span class="unit-price"></span></td>
+						  	<td><input type="text"  size="3" value=""/></td>
+	                        <td style="text-align:left;"><a href="@{Application.RemoveSoup(cachedSoup.SoupID)}">Remove</a></td>
+							<td style="text-align:right;"><span class="subtotal-price"></span></td>
+						</tr>
+						 #{list items:cachedSoup.IngredientList, as:'ingredient'}
+							<tr class="even">
+								<td>${ingredient.IngredientName}</td>
+								<td><span class="unit-price"></span></td>
+							  	<td><input type="text"  size="3" value=""/></td>
+		                           <td style="text-align:left;"><a href="@{Application.RemoveIngredient(ingredient.IngredientID)}">Remove</a></td>
+								<td style="text-align:right;"><span class="subtotal-price"></span></td>
+							</tr>
+						#{/list}
+						#{if cachedSoup.SoupSize}
+							<tr class="even">
+								<td>${cachedSoup.SoupSize}</td>
+								<td><span class="unit-price"></span></td>
+							  	<td><input type="text"  size="3" value=""/></td>
+		                           <td style="text-align:left;"><a href="#">Remove</a></td>
+								<td style="text-align:right;"><span class="subtotal-price"></span></td>
+							</tr>
+						#{/if}
+					#{/if}
+					
 					</tbody>
 				</table>
 				<div id="con-butcart">

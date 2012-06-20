@@ -1,8 +1,10 @@
 package controllers;
 
 import play.*;
+import play.cache.Cache;
 import play.data.validation.Valid;
 import play.mvc.*;
+import play.mvc.results.*;
 
 import java.util.*;
 
@@ -59,9 +61,7 @@ public class Application extends Controller {
             params.flash(); // add http parameters to the flash scope
             validation.keep(); // keep the errors for the next request
             Application.login();
-        }
-        
-
+        }     
     }
     
     public static void saveUser(@Valid SoupUser users, String verifyPassword ,String email) {
@@ -90,6 +90,51 @@ public class Application extends Controller {
         renderTemplate("@Application.index",fullname);
     }
     
+    public static void CreateBaseSoup(String id) {
+        
+        BaseSoup bs = BaseSoup.find(Integer.parseInt(id));
+        Soups baseSoup = new Soups(bs.SoupID,bs.Name,bs.value);
+        Cache.set("soup_"+id, baseSoup);
+        session.put("basesoup", id);
+        soups();
+    }
+    
+    public static void AddBaseIngredient(String id) {
+        //renderText("the id=" + id);
+        SoupIngredients ing = SoupIngredients.find(Integer.parseInt(id));
+        Ingredient baseIng = new Ingredient(ing.IngID,ing.Name,ing.value);
+        if(session.get("basesoup") != null) {
+            String strid = session.get("basesoup");
+            Soups bs = Cache.get("soup_"+strid,Soups.class);
+            bs.addIngredient(baseIng);
+            Cache.set("soup_"+strid, bs);
+            soups();
+        }else {
+            String errorMSG = "Please first select base soup";
+            reload(errorMSG);
+        }
+        renderTemplate("@Application.soups");
+    }
+    
+    public static void AddPacketSize(String id) {
+      
+        if(session.get("basesoup") != null) {
+            String strid = session.get("basesoup");
+            Soups bs = Cache.get("soup_"+strid,Soups.class);
+            if(id.matches("1"))
+                bs.setSoupSize("Large");
+            else if (id.matches("2"))
+                bs.setSoupSize("Medium");
+            else if(id.matches("3"))
+                bs.setSoupSize("small");
+            
+            Cache.set("soup_"+strid, bs);
+            soups();
+        }else {
+            String errorMSG = "Please first select base soup";
+            reload(errorMSG);
+        }
+    }
     public static void password(String email) {
         validation.email(email);
         if(validation.hasErrors()) {
@@ -120,7 +165,25 @@ public class Application extends Controller {
     }
     
     public static void shoppingcart() {
-        render();
+        if(session.get("basesoup") != null) {
+            String strid = session.get("basesoup");
+            Soups bs = Cache.get("soup_"+strid,Soups.class);
+            if(bs.getSoupSize()== null)
+            {
+                String errorMSG = "Please Select A Soup Size.....";
+                reload(errorMSG);
+            }
+            ShoppingCart objShoppingCart= new ShoppingCart(0);
+            objShoppingCart.addProduct(bs);
+            Cache.set("ShoppingCart", objShoppingCart);
+            session.remove("basesoup");
+            if(Cache.safeDelete("soup_" + strid))
+                render(objShoppingCart);
+            render(objShoppingCart);
+        }else {
+            String errorMSG = "Please first Make A Soup.....";
+            reload(errorMSG);
+        }
     }
     
     public static void about() {
@@ -128,9 +191,38 @@ public class Application extends Controller {
     }
     
     public static void soups() {
-        render();
+        List<BaseSoup> bs = BaseSoup.findAll();
+        List<SoupIngredients> si = SoupIngredients.findAll();
+        String SoupID = session.get("basesoup");
+        Soups cachedSoup = Cache.get("soup_"+SoupID,Soups.class);
+        render(bs,si,cachedSoup);
+    }
+    public static void reload(String errorMSG) {
+        List<BaseSoup> bs = BaseSoup.findAll();
+        List<SoupIngredients> si = SoupIngredients.findAll();
+        renderTemplate("@Application.soups",bs,si,errorMSG);
     }
     
+    public static void RemoveSoup(String id) {
+        if(Cache.safeDelete("soup_" + id)) {
+            session.remove("basesoup");
+            soups();
+        }
+        else
+            soups();
+    }
+    
+    public static void RemoveIngredient(String id) {
+        String SoupID = session.get("basesoup");
+        Soups cachedSoup = Cache.get("soup_"+SoupID,Soups.class);
+        if(cachedSoup.RemoveIngredient(id)) {
+            String errorMSG = "Ingredient Removed Successfully";
+            List<BaseSoup> bs = BaseSoup.findAll();
+            List<SoupIngredients> si = SoupIngredients.findAll();
+            renderTemplate("@Application.soups",bs,si,cachedSoup,errorMSG);
+        }
+    }
+
     public static void login() {
         render();
     }

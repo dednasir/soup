@@ -1,8 +1,9 @@
 package controllers;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
 
     private ArrayList SoupList;
     private int customerID;
@@ -42,7 +43,7 @@ public class ShoppingCart {
         for (int i=0; i<SoupList.size(); i++) {
             Object obj = SoupList.get(i);
             Soups p = (Soups)obj;
-            totalPrice = totalPrice + p.getPrice();
+            totalPrice = totalPrice + p.getTotalPrice();
         }
         return totalPrice;
     }
