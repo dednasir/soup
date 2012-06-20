@@ -70,16 +70,16 @@
                     <ul class="top-nav">
                     %{
                     	if(session.get("user") != null)
-   							fullName = true;
+   							userexist = true;
    						else
-   							fullname = false;
+   							userexist = false;
 					}%
  
- 					#{if !fullname}
-	   					<li><a href="/login.php">My Account</a></li>
+ 					#{if userexist}
+	   					<li><a href="/logout.php">logout</a></li>
 					#{/if}
                     #{else}
-	   					<li><a href="/logout.php">logout</a></li>
+                    	<li><a href="/login.php">My Account</a></li>
 					#{/else}    
                         <li><a href="#">Help</a></li>
 						<li><a href="@{Application.shoppingcart}">Shopping Cart</a></li>

@@ -10,10 +10,11 @@
 		<fieldset>
 			<label>E-mail Address</label><br />
 			<input type="text"  class="text-input" name="email" value="${flash.email}"/>
-			<span>#{error 'email' /}</span><br />
+			<span class="errorCl">#{error 'email' /}</span><br />
 			<label>Password</label><br />
 			<input type="password" class="text-input" name="password" value="${flash.password}"/>
-			<span>#{error 'password' /}</span><br /><br />
+			<span class="errorCl">#{error 'password' /}</span><br /><br />
+		
 			<input type="submit" value="Account login" />
 	    </fieldset>
     #{/form}

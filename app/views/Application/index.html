@@ -1,7 +1,12 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<h1>Hello ${fullname ?: 'guest'}!</h1>
+			   %{
+                  	if(session.get("user") != null)
+ 							nameali = session.get("user");
+ 					}%
+ 
+<h1>Hello ${nameali ?: 'guest'}!</h1>
 
 <input type="submit" value="Create your account" />
 <div id="header">

@@ -164,7 +164,10 @@ public class Application extends Controller {
         render();
     }
     
+
     public static void shoppingcart() {
+        
+        ShoppingCart objShoppingCart;
         if(session.get("basesoup") != null) {
             String strid = session.get("basesoup");
             Soups bs = Cache.get("soup_"+strid,Soups.class);
@@ -173,15 +176,28 @@ public class Application extends Controller {
                 String errorMSG = "Please Select A Soup Size.....";
                 reload(errorMSG);
             }
-            ShoppingCart objShoppingCart= new ShoppingCart(0);
-            objShoppingCart.addProduct(bs);
-            Cache.set("ShoppingCart", objShoppingCart);
+            
+            
+            if(Cache.get("ShoppingCart", ShoppingCart.class) == null ) {
+                objShoppingCart= new ShoppingCart(0);
+                objShoppingCart.addProduct(bs);
+                Cache.set("ShoppingCart", objShoppingCart, "30mn");
+            }else {
+                objShoppingCart = Cache.get("ShoppingCart", ShoppingCart.class);
+                objShoppingCart.addProduct(bs);
+                Cache.set("ShoppingCart", objShoppingCart, "30mn");
+            }
             session.remove("basesoup");
             if(Cache.safeDelete("soup_" + strid))
                 render(objShoppingCart);
             render(objShoppingCart);
+        }else if(Cache.get("ShoppingCart", ShoppingCart.class) != null){ //in case users wants to check the shopping cart
+            objShoppingCart = Cache.get("ShoppingCart", ShoppingCart.class);
+            render(objShoppingCart);
+            /*String errorMSG = "Please first Make A Soup.....";
+            reload(errorMSG);*/
         }else {
-            String errorMSG = "Please first Make A Soup.....";
+            String errorMSG = "Shopping cart is empty. Please make a soup first ........";
             reload(errorMSG);
         }
     }

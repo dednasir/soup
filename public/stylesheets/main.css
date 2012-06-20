@@ -165,6 +165,9 @@ form .buttons {
     margin-top: 20px;
 }
 
+.errorCl{
+	color: #c00;
+}
 /** Footer **/
 
 #footer {
