@@ -15,7 +15,7 @@
 								<td><img src="@{'/public/images/content/pic6.jpg'}" alt="" /><br />${Soup.SoupName}</td>
 								<td><span class="unit-price">€ ${Soup.SoupPrice}</span></td>
 							  	<td><input type="text"  size="3" value="1"/></td>
-	                            <td style="text-align:left;"><a href="#">Remove</a></td>
+	                            <td style="text-align:left;"><a href="@{Application.shopRemoveSoup(Soup.SoupID)}">Remove</a></td>
 								<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
 							</tr>
 							#{list items:Soup.IngredientList, as:'Ingredient'}
@@ -23,7 +23,7 @@
 									<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />${Ingredient.IngredientName}</td>
 									<td><span class="unit-price">€ ${Ingredient.IngredientPrice}</span></td>
 								  	<td><input type="text"  size="3" value="1"/></td>
-		                            <td style="text-align:left;"><a href="#">Remove</a></td>
+		                            <td style="text-align:left;"><a href="@{Application.shopRemoveIng(Soup.SoupID,Ingredient.IngredientID)}">Remove</a></td>
 									<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
 								</tr>
 							#{/list}
@@ -34,21 +34,7 @@
 	                            <td style="text-align:left;"><a href="#">Remove</a></td>
 								<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td>
 							</tr>
-						#{/list}
-<!-- 						<tr class="even"> -->
-<!-- 							<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />Soup 1 Ingredient 2</td> -->
-<!-- 							<td><span class="unit-price">€ 0,00</span></td> -->
-<!-- 						  	<td><input type="text"  size="3" value="1"/></td> -->
-<!--                             <td style="text-align:left;"><a href="#">Remove</a></td> -->
-<!-- 							<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td> -->
-<!-- 						</tr> -->
-<!-- 						<tr class="even"> -->
-<!-- 							<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />Soup 1 Ingredient 3</td> -->
-<!-- 							<td><span class="unit-price">€ 0,00</span></td> -->
-<!-- 						  	<td><input type="text"  size="3" value="1"/></td> -->
-<!--                             <td style="text-align:left;"><a href="#">Remove</a></td> -->
-<!-- 							<td style="text-align:right;"><span class="subtotal-price">€ 0,00</span></td> -->
-<!-- 						</tr> --> 						
+						#{/list}					
 						</tbody>
 					</table>
                     <ul class="total">

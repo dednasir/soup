@@ -135,6 +135,49 @@ public class Application extends Controller {
             reload(errorMSG);
         }
     }
+    
+    public static void RemovePacketSize(String id) {
+        
+        if(session.get("basesoup") != null) {
+            String strid = session.get("basesoup");
+            Soups bs = Cache.get("soup_"+strid,Soups.class);
+            bs.setSoupSize(null);
+            Cache.set("soup_"+strid, bs);
+            soups();
+        }else {
+            String errorMSG = "Please first select base soup";
+            reload(errorMSG);
+        }
+    }
+    
+    
+    public static void shopRemoveSoup(String id) {
+        ShoppingCart objShop = Cache.get("ShoppingCart", ShoppingCart.class);
+        
+        if(objShop.removeProduct(id)) {
+            if(objShop.getItemCount() == 0)
+                Cache.set("ShoppingCart", null);
+            else
+                Cache.set("ShoppingCart", objShop);
+            shoppingcart();
+        }else {
+            renderText("Error");
+        }
+    }
+    
+    public static void shopRemoveIng(String id, String ingid) {
+        ShoppingCart objShop = Cache.get("ShoppingCart", ShoppingCart.class);
+        
+        if(objShop.RemoveIngredient(id, ingid)) {
+            if(objShop.getItemCount() == 0)
+                Cache.set("ShoppingCart", null);
+            else
+                Cache.set("ShoppingCart", objShop);
+            shoppingcart();
+        }else {
+            renderText("Error");
+        }   
+    }
     public static void password(String email) {
         validation.email(email);
         if(validation.hasErrors()) {

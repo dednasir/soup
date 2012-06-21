@@ -51,7 +51,7 @@ public class Soups implements Serializable{
     }
     
     public boolean RemoveIngredient(String id){
-        for(int count=0;count <= IngredientList.size();count++) {
+        for(int count=0;count < IngredientList.size();count++) {
             Object obj = IngredientList.get(count);
             Ingredient objIng = (Ingredient)obj;
             if(objIng.getIngID() == Integer.parseInt(id)) {

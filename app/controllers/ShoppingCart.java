@@ -3,7 +3,9 @@ package controllers;
 import java.io.Serializable;
 import java.util.*;
 
-public class ShoppingCart implements Serializable {
+import play.mvc.Controller;
+
+public class ShoppingCart extends Controller implements Serializable {
 
     private ArrayList SoupList;
     private int customerID;
@@ -48,7 +50,48 @@ public class ShoppingCart implements Serializable {
         return totalPrice;
     }
 
-    public void removeProduct(Soups p) {
-        SoupList.remove(p);
+    public boolean removeProduct(String Soupid) {
+        int id = Integer.parseInt(Soupid);
+        for(int count=0;count < SoupList.size(); count++) {
+            Object obj = SoupList.get(count);
+            Soups objSoup = (Soups)obj;
+            if(objSoup.getSoupID() == id) {
+                SoupList.remove(objSoup);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean RemoveIngredient(String Soupid,String IngID){
+        
+        int id = Integer.parseInt(Soupid);
+        int iid = Integer.parseInt(IngID);
+        for(int count=0;count < SoupList.size(); count++) {
+            Object obj = SoupList.get(count);
+            Soups objSoup = (Soups)obj;
+            if(objSoup.getSoupID() == id) {
+                if(deleteIngredient(objSoup,IngID))
+                    return true;
+                else
+                    return false;
+            }
+        }
+        return false;
+    }
+    
+    public boolean deleteIngredient(Soups objSoup, String IngID){
+        
+        int iid = Integer.parseInt(IngID);
+        ArrayList objArray =  objSoup.getIngredientList();
+        for(int count=0;count < objArray.size(); count++) {
+            Object obj = objArray.get(count);
+            Ingredient objIngredient = (Ingredient)obj;
+            if(objIngredient.getIngID() == iid) {
+                objArray.remove(objIngredient);
+                return true;
+            }
+        }
+        return false;
     }
 }
