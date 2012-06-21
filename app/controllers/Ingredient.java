@@ -5,11 +5,13 @@ public class Ingredient {
     private int IngredientID;
     private String IngredientName;
     private double IngredientPrice;
+    private String IngImage;
 
     public Ingredient(int IngID,String IngName,double Ingprice) {
         this.IngredientID = IngID;
         this.IngredientName = IngName;
         this.IngredientPrice = Ingprice;
+        this.IngImage = null;
     }
     
     public double getPrice() {

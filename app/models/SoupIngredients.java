@@ -20,6 +20,11 @@ public class SoupIngredients extends Model {
     @MinSize(5)
     public String Description;
     
+    
+    @MaxSize(5)
+    @MinSize(1)
+    public int IngImage;
+    
     @Required
     @MinSize(1)
     public double value;
