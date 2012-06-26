@@ -96,7 +96,6 @@ public class Application extends Controller {
         Soups baseSoup = new Soups(bs.SoupID,bs.Name,bs.value);
         Cache.set("soup_"+id, baseSoup);
         session.put("basesoup", id);
-        session.put("chooseSlider", 2);
         soups();
     }
     
@@ -109,7 +108,6 @@ public class Application extends Controller {
             Soups bs = Cache.get("soup_"+strid,Soups.class);
             bs.addIngredient(baseIng);
             Cache.set("soup_"+strid, bs);
-            session.put("chooseSlider", 2);
             soups();
         }else {
             String errorMSG = "Please first select base soup";
@@ -119,11 +117,9 @@ public class Application extends Controller {
     }
     
     public static void AddPacketSize(String id) {
-        
+      
         if(session.get("basesoup") != null) {
-            session.put("chooseSlider",0);
             String strid = session.get("basesoup");
-            
             Soups bs = Cache.get("soup_"+strid,Soups.class);
             if(id.matches("1"))
                 bs.setSoupSize("Large");
@@ -132,8 +128,6 @@ public class Application extends Controller {
             else if(id.matches("3"))
                 bs.setSoupSize("small");
             
-            session.put("chooseSlider", 4);
-           
             Cache.set("soup_"+strid, bs);
             soups();
         }else {

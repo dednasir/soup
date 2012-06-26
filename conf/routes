@@ -3,20 +3,31 @@
 # ~~~~
 
 # Home page
+GET     /index.html                                       Application.index
+
+# Home page
 GET     /                                       Application.index
+
+GET     /soups.html                                       Application.soups
+
+GET     /blog.html                                       Application.blog
+
+GET     /faq.html                                       Application.faq
+
+GET     /about.html                                       Application.about
 
 # Creating a soup
 GET     /BaseSoup/{id}                          Application.CreateBaseSoup(id)
 
-GET     /SoupIngredient/{id}                    Application.AddBaseIngredient(id)
+GET     /soups.html/{id}                    Application.AddBaseIngredient(id)
 
-GET     /SoupSize/{id}                          Application.AddPacketSize(id)
+GET     /soups.html/PacketSize.html/{id}                          Application.AddPacketSize(id)
 
-GET     /RemoveSoupSize/{id}                    Application.RemovePacketSize(id)
+GET     /soups.html/RemovePacketSize.html/{id}                    Application.RemovePacketSize(id)
 
-GET     /RemoveIngredient/{id}                  Application.RemoveIngredient(id)
+GET     /soups.html/RemoveIngredient.html/{id}                  Application.RemoveIngredient(id)
 
-GET     /RemoveSoup/{id}                        Application.RemoveSoup(id)
+GET     /soups.html/RemoveSoup.html/{id}                        Application.RemoveSoup(id)
 
 GET 	/shoppingCart							Application.showshoppingcart
 

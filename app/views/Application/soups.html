@@ -6,7 +6,7 @@
 #{/if}
 
 <div id="slidedeck_frame" class="skin-slidedeck">
-       <dl class="slidedeck">
+       <dl id="soup_slidedeck" class="slidedeck">
                <dt>Soup Base › Choose a soup</dt>
                <dd>
 					<ul class="slidesVertical">
@@ -21,7 +21,7 @@
 		                               <p>${base.Description}</p>
 		                               <p>${base.SoupID}</p>
 									<ul class="button-cart">
-			                        	<li><a href="@{Application.CreateBaseSoup(base.SoupID)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+			                        	<li><a id="basesouplink"href="@{Application.CreateBaseSoup(base.SoupID)}" class="addtowishlistsl but-red" onclick="$(this).slidedeck().goToVertical(2,1);">Add to Wishlist</a></li>
 			                        </ul>
 		                           </div>
 		                       </li>
@@ -45,7 +45,7 @@
 		                               <p>${ingredient.Description}</p>
 		                               <p>${ingredient.IngID}</p>
 									<ul class="button-cart">
-			                        	<li><a href="@{Application.AddBaseIngredient(ingredient.IngID)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+			                        	<li><a id="ingredientlink" href="@{Application.AddBaseIngredient(ingredient.IngID)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 			                        </ul>
 		                           </div>
 		                       </li>
@@ -67,7 +67,7 @@
                                <p class="sub">subtitle</p>
                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
 							<ul class="button-cart">
-	                        	<li><a href="@{Application.AddPacketSize(3)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+	                        	<li><a id="packetsizelink" href="@{Application.AddPacketSize(3)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 	                        </ul>
                            </div>
                        </li>
@@ -189,14 +189,23 @@
               $('.skin-slidedeck .spine .verticalSlideNav').each(function(){
                   var liHeight = $(this).find('li').height();
                   var ulOffset = ( 62 + ( ($(this).find('li').length - 1) * liHeight ) ) + 'px';
-			var ulHeight = ( ($(this).find('li').length - 1) * liHeight ) + 'px';
+				  var ulHeight = ( ($(this).find('li').length - 1) * liHeight ) + 'px';
                   $(this).css({
                       left: ulOffset, 
-				height: ulHeight
+					  height: ulHeight
                   });
               });
 
-
+              
+//               $("#packetsizelink").click(function() {
+//             	  $('#soup_slidedeck').slidedeck().goToVertical(1,4);
+//               });
+//               $("#basesouplink").click(function() {
+//             	  $('#soup_slidedeck').slidedeck().goToVertical(1,2);
+//               });
+//               $("#ingredientlink").click(function() {
+//             	  $('#soup_slidedeck').slidedeck().goToVertical(1,2);
+//               });
 
           }).
 
@@ -256,7 +265,29 @@
               });
 
           });
+          
+        %{
+        	if(session.get("chooseSlider") != null)
+				vCount = session.get("chooseSlider");
+			else
+				vCount = "0";
+		}%
 
+	#{if vCount != "0"}
+		#{if vCount == "2"}
+			$('#soup_slidedeck').slidedeck().goToVertical(1,2);
+			%{
+         		session.put("chooseSlider",0);
+			}%
+		#{/if}
+		#{if vCount == "4"}
+			$('#soup_slidedeck').slidedeck().goToVertical(1,4);
+			%{
+        		session.put("chooseSlider",0);
+			}%
+		#{/if}
+	#{/if}
+		
       </script>
 
 	<!--
