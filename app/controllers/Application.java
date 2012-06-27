@@ -3,10 +3,13 @@ package controllers;
 import play.*;
 import play.cache.Cache;
 import play.data.validation.Valid;
+import play.i18n.Lang;
 import play.mvc.*;
 import play.mvc.results.*;
 
 import java.util.*;
+
+import notifiers.Mails;
 
 import models.*;
 
@@ -40,6 +43,13 @@ public class Application extends Controller {
             return null;
     }
     
+    public static void changeLanguage(String language) {
+        if(language.matches("de"))
+            Lang.change("de");
+        else
+            Lang.change("en");
+        index();
+    }
     
     public static void check(String email, String password) {
         validation.required(email);
@@ -86,8 +96,17 @@ public class Application extends Controller {
         users.create();
         session.put("user", users.toString());
         String fullname = users.toString();
+        Mails.welcome(users);
         //flash.success("Welcome, " + user.fullname);
         renderTemplate("@Application.index",fullname);
+    }
+    
+    public static void confirmemail(){
+        render();
+    }
+    
+    public static void verifyemail(){
+        render();
     }
     
     public static void CreateBaseSoup(String id) {
@@ -322,6 +341,20 @@ public class Application extends Controller {
     
     public static void lostPassword() {
         render();
+    }
+    
+    public static void sendEmail(String email) {
+        validation.email(email);
+        //renderText("what id this");
+        if(validation.hasErrors()) {
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            Application.lostPassword();
+        }
+        SoupUser user = SoupUser.UserExist(email);
+        if(user != null) {
+            Mails.lostPassword(user);
+        }
     }
     
     public static void register(){

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="shortcut icon" href="images/favicon.ico" />
+<!-- 		<link rel="shortcut icon" href="images/favicon.ico" /> -->
 		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="robots" content="index, follow" />
@@ -76,19 +76,19 @@
 					}%
  
  					#{if userexist}
-	   					<li><a href="/logout.php">logout</a></li>
+	   					<li><a href="/logout.php">&{'menu.logout'}</a></li>
 					#{/if}
                     #{else}
-                    	<li><a href="/login.php">My Account</a></li>
+                    	<li><a href="/login.php">&{'menu.login'}</a></li>
 					#{/else}    
-                        <li><a href="#">Help</a></li>
-						<li><a href="@{Application.shoppingcart}">Shopping Cart</a></li>
+                        <li><a href="#">&{'menu.help'}</a></li>
+						<li><a href="@{Application.shoppingcart}">&{'shoppingcart'}</a></li>
                     </ul>
 					
 					<ul class="language-nav">
-						<li class="ch"><a href="http://ch.souplove.de">ch.souplove.de</a></li>
-						<li class="uk"><a href="http://uk.souplove.de">uk.souplove.de</a></li>
-						<li class="de"><a href="http://www.souplove.de">www.souplove.de</a></li>
+<!-- 						<li class="ch"><a href="@{Application.changeLanguage('de')}">ch.souplove.de</a></li> -->
+						<li class="uk"><a href="@{Application.changeLanguage('en')}">English</a></li>
+						<li class="de"><a href="@{Application.changeLanguage('de')}">German</a></li>
 					</ul>
                 </div>
                 <div class="clear"></div>
@@ -96,23 +96,26 @@
 					<ul id="main_menu">
 						<script language='javascript'>
 						
-						if(document.URL.indexOf("index.html") >= 0){ 
-						document.write("<li><a href='@{Application.index}' class='current'>Home</a></li><li><a href='@{Application.soups}'>Soups</a><div class='sub'><ul><li><h2>Soup</h2></li><li><a href='@{Application.about}'>Make Your soup</a></li><li><a href='#'>PreCustomize Soup</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}
+						if(document.URL.indexOf("/") >= 0){ 
+						document.write("<li><a href='@{Application.index}' class='current'>Home</a></li><li><a href='@{Application.soups}'>&{'menu.soups'}</a><div class='sub'><ul><li><h2>&{'menu.soups'}</h2></li><li><a href='@{Application.about}'>&{'menu.ownsoup'}</a></li><li><a href='#'>&{'menu.customize'}</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}
+						
+						else if(document.URL.indexOf("index.html") >= 0){ 
+							document.write("<li><a href='@{Application.index}' class='current'>Home</a></li><li><a href='@{Application.soups}'>&{'menu.soups'}</a><div class='sub'><ul><li><h2>&{'menu.soups'}</h2></li><li><a href='@{Application.about}'>&{'menu.ownsoup'}</a></li><li><a href='#'>&{'menu.customize'}</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}
 						
 						else if(document.URL.indexOf("soups.html") >= 0){ 
-						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}' class='current'>Soups</a><div class='sub'><ul><li><h2>Soup</h2></li><li><a href='@{Application.about}'>Make Your soup</a></li><li><a href='#'>PreCustomize Soup</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}
+						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}' class='current'>&{'menu.soups'}</a><div class='sub'><ul><li><h2>&{'menu.soups'}</h2></li><li><a href='@{Application.about}'>&{'menu.ownsoup'}</a></li><li><a href='#'>&{'menu.customize'}</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}
 						
 						else if(document.URL.indexOf("blog.html") >= 0){ 
-						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>Soups</a><div class='sub'><ul><li><h2>Soup</h2></li><li><a href='@{Application.about}'>Make Your soup</a></li><li><a href='#'>PreCustomize Soup</a></li></ul></div></li><li><a href='@{Application.blog}' class='current'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}						
+						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>&{'menu.soups'}</a><div class='sub'><ul><li><h2>&{'menu.soups'}</h2></li><li><a href='@{Application.about}'>&{'menu.ownsoup'}</a></li><li><a href='#'>&{'menu.customize'}</a></li></ul></div></li><li><a href='@{Application.blog}' class='current'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}						
 						
 						else if(document.URL.indexOf("faq.html") >= 0){ 
-						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>Soups</a><div class='sub'><ul><li><h2>Soup</h2></li><li><a href='@{Application.about}'>Make Your soup</a></li><li><a href='#'>PreCustomize Soup</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}' class='current'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}						
+						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>&{'menu.soups'}</a><div class='sub'><ul><li><h2>&{'menu.soups'}</h2></li><li><a href='@{Application.about}'>&{'menu.ownsoup'}</a></li><li><a href='#'>&{'menu.customize'}</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}' class='current'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}						
 
 						else if(document.URL.indexOf("about.html") >= 0){ 
-						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>Soups</a><div class='sub'><ul><li><h2>Soup</h2></li><li><a href='@{Application.about}'>Make Your soup</a></li><li><a href='#'>PreCustomize Soup</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}' class='current'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}
+						document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>&{'menu.soups'}</a><div class='sub'><ul><li><h2>&{'menu.soups'}</h2></li><li><a href='@{Application.about}'>&{'menu.ownsoup'}</a></li><li><a href='#'>&{'menu.customize'}</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}' class='current'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");}
 						
 						else{
-							document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>Soups</a><div class='sub'><ul><li><h2>Soup</h2></li><li><a href='@{Application.about}'>Make Your soup</a></li><li><a href='#'>PreCustomize Soup</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");
+							document.write("<li><a href='@{Application.index}'>Home</a></li><li><a href='@{Application.soups}'>&{'menu.soups'}</a><div class='sub'><ul><li><h2>&{'menu.soups'}</h2></li><li><a href='@{Application.about}'>&{'menu.ownsoup'}</a></li><li><a href='#'>&{'menu.customize'}</a></li></ul></div></li><li><a href='@{Application.blog}'>Blog</a></li><li><a href='@{Application.faq}'>FAQ</a></li><li><a href='@{Application.about}'>About Us</a><div class='sub'><ul><li><h2>About</h2></li><li><a href='@{Application.about}'>The Crew</a></li><li><a href='#'>Support Us</a></li><li><a href='@{Application.contact}'>Contact Us</a></li><li><a href='#'>Privacy</a></li></ul></div></li>");
 						}
 						
 						</script>
@@ -125,7 +128,7 @@
 		</div><!-- end #top -->
         
 		<div id="intro">
-        	<div class="button-left"><a href="elements.html">Delicious Soups For Busy People</a></div>
+        	<div class="button-left"><a href="@{Application.index}">&{'logodesc'}</a></div>
         </div>
 		
 		
