@@ -12,7 +12,7 @@
 						</tr>
 						#{list items:objShoppingCart.SoupList, as:'Soup'}
 							<tr class="even">
-								<td><img src="../public/images/basesoup/${Soup.SoupImage}" alt="base soup" /><br />${Soup.SoupName}</td>
+								<td><img src="../public/images/Shoppingcart/sc_${Soup.SoupImage}" alt="base soup" /><br />${Soup.SoupName}</td>
 								<td><span class="unit-price" id="shopSoupPrice">€ ${Soup.SoupPrice}</span><input type="hidden" id="soupid_" value="${Soup.SoupID}"></td>
 							  	<td><input type="text" id="shopQuantity_${Soup.SoupID}"  size="3" value="${Soup.SoupQuantity}" alt="${Soup.SoupID}" onblur="reCalculate(this)"/></td>
 	                            <td style="text-align:left;"><a href="@{Application.shopRemoveSoup(Soup.SoupID)}">Remove</a></td>
@@ -20,7 +20,7 @@
 							</tr>
 							#{list items:Soup.IngredientList, as:'Ingredient'}
 								<tr class="even">
-									<td><img src="../public/images/Ingredients/${Ingredient.IngImage}" alt="" height="100" width="200"/><br />${Ingredient.IngredientName}</td>
+									<td><img src="../public/images/Shoppingcart/sc_${Ingredient.IngImage}" alt="" height="100" width="200"/><br />${Ingredient.IngredientName}</td>
 									<td><span class="unit-price">€ ${Ingredient.IngredientPrice}</span></td>
 								  	<td><!--<input type="text" id="shopingre"  size="3" value="1"/>--></td>
 		                            <td style="text-align:left;"><!--<a href="@{Application.shopRemoveIng(Soup.SoupID,Ingredient.IngredientID)}">Remove</a> --></td>
@@ -28,7 +28,7 @@
 								</tr>
 							#{/list}
 							<tr class="even"> 
-								<td><img src="@{'/public/images/content/pic7.jpg'}" alt="" /><br />${Soup.SoupSize}</td>
+								<td><img src="@{'/public/images/Shoppingcart/sc_packsize.jpg'}" alt="" /><br />${Soup.SoupSize}</td>
 								<td><span class="unit-price">€ 0,00</span></td>
 							  	<td><!--<input type="text"  size="3" value="1"/>--></td>
 	                            <td style="text-align:left;"><!--<a href="#">Remove</a>--></td>

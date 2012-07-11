@@ -239,9 +239,18 @@ public class Application extends Controller {
         render();
     }
 
+    public static void privacy() {
+        render();
+    }
+    
     public static void faq() {
         render();
     }
+    
+    public static void support() {
+        render();
+    }
+
     
     public static void checkout() {
         render();

@@ -2,3 +2,80 @@
 #{set title:'FAQ' /}
 
 <h1>Frequently Asked Questions</h1>
+
+<div id="faqs">
+<h3>How does the delivery work?</h3>
+<div>
+  <p>The cup which contains the soup is flexible and can be fold so that it fits into an ordinary envelope.</p>
+</div>
+<h3>How much are the delivery fees?
+
+</h3>
+<div>
+  <p>The delivery fees are X,XX€.</p>
+</div>
+<h3>What are my payment options?
+
+</h3>
+<div>
+  <p>You can either pay with direct debit, PayPal or credit card.</p>
+</div>
+<h3>Can I really customize my soup as I wish?
+</h3>
+<div>
+  <p>Yes, you can! Different people got different tastes, and we don't want to dictate which soup combinations you can built and which you can't. So feel free to mix your soup as you like!
+  </p>
+</div>
+<h3>But I'm a total soup newb!
+</h3>
+<div>
+  <p>No problem, we offer a bunch of pre-customized soups that were recommended by other customers.
+  </p>
+</div>
+<h3>Are your soups all organic?
+</h3>
+<div>
+  <p>Of course they are! We EXCUSIVELY use ingredients from organic production. Find out more about it here.
+  </p>
+</div>
+<h3>Can I reorder a certain soup?
+</h3>
+<div>
+  <p>Yes. Every ordered soup gets saved in your order history. So it‘s possible to reorder a customized soup again and again.
+  </p>
+</div>
+<h3>
+How long can I keep a soup stored?
+</h3>
+<div>
+  <p>The minimum durability depends on the ingredients chosen. Only in exceptional cases the durability is less than 3 months. But usually you can keep your muesli stored more than 3 months.
+  </p>
+</div>
+<h3>I want to suggest a new ingredient, is that possible?
+</h3>
+<div>
+  <p>Sure! But we carefully look for high standards and quality. If your ingredient is organic, then suggest your ingredient via e-mail, our Facebook page or our Twitter channel.
+  </p>
+</div>
+</div>
+
+<script type="text/javascript"> 
+
+$(document).ready(function() {
+  $('#faqs h3').each(function() {
+    var tis = $(this), state = false, answer = tis.next('div').slideUp();
+    tis.click(function() {
+      state = !state;
+      answer.slideToggle(state);
+      tis.toggleClass('active',state);
+    });
+  });
+});
+</script>
+<style type="text/css"> 
+#faqs { position:relative; }
+#faqs h3  { cursor:pointer; }
+#faqs h3.active  { color:#d74646; }
+#faqs div   { position:relative; }
+#faqs div p  { padding:0; margin-bottom:15px; }
+</style>
