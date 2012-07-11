@@ -7,11 +7,11 @@ public class Ingredient {
     private double IngredientPrice;
     private String IngImage;
 
-    public Ingredient(int IngID,String IngName,double Ingprice) {
+    public Ingredient(int IngID,String IngName,double Ingprice,String image) {
         this.IngredientID = IngID;
         this.IngredientName = IngName;
         this.IngredientPrice = Ingprice;
-        this.IngImage = null;
+        this.IngImage = image;
     }
     
     public double getPrice() {
@@ -26,4 +26,9 @@ public class Ingredient {
         // TODO Auto-generated method stub
         return IngredientID;
     }
+    public String getImage() {
+        // TODO Auto-generated method stub
+        return IngImage;
+    }
+    
 }

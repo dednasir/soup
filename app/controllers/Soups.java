@@ -11,14 +11,18 @@ public class Soups implements Serializable{
     private String SoupName;
     private double SoupPrice;
     private String SoupSize;
+    private String SoupImage;
+    private int SoupQuantity;
     private ArrayList IngredientList;
     
 
-    public Soups(int soupID,String soupname,double price) {
+    public Soups(int soupID,String soupname,double price,String image) {
         this.SoupID = soupID;
         this.SoupName = soupname;
         this.SoupPrice = price;
         this.SoupSize = null;
+        this.SoupImage = image;
+        this.SoupQuantity = 1;
         IngredientList = new ArrayList();
     }
 
@@ -34,8 +38,24 @@ public class Soups implements Serializable{
         return SoupSize;
     }
     
+    public int getSoupQuantitiy() {
+        return SoupQuantity;
+    }
+    
+    public void setSoupQuantitiy(int quantity) {
+        SoupQuantity = quantity;
+    }
+    
     public void setSoupSize(String s) {
         SoupSize = s;
+    }
+    
+    public String getSoupImage() {
+        return SoupImage;
+    }
+    
+    public void setSoupImage(String s) {
+    	SoupImage = s;
     }
     
     public double getBaseSoupPrice() {
@@ -65,15 +85,12 @@ public class Soups implements Serializable{
     
     public double getTotalPrice() {
         double totalPrice = 0;
-        // Get the price of each Product in this ShoppingCart and
-        // add it to the totalPrice.  Notice that polymorphism allows
-        // this method to work for both Products and DiscountProducts.
         for (int i=0; i<this.IngredientList.size(); i++) {
             Object obj = this.IngredientList.get(i);
             Ingredient p = (Ingredient)obj;
             totalPrice = totalPrice + p.getPrice();
         }
-        return totalPrice + this.SoupPrice;
+        return (totalPrice + this.SoupPrice)*this.SoupQuantity;
     }
 
 }

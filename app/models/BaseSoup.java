@@ -16,6 +16,11 @@ public class BaseSoup extends Model {
     public String Name;
     
     @Required
+    @MaxSize(15)
+    @MinSize(4)
+    public String Image;
+    
+    @Required
     @MaxSize(250)
     @MinSize(5)
     public String Description;

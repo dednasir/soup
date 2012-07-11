@@ -6,34 +6,42 @@
 GET     /index.html                                       Application.index
 
 # Home page
-GET     /                                       Application.index
+GET     /                                   Application.index
 
-GET     /soups.html                                       Application.soups
+GET     /soups.html                         Application.soups
 
-GET     /blog.html                                       Application.blog
+GET     /blog.html                          Application.blog
 
-GET     /faq.html                                       Application.faq
+GET     /faq.html                           Application.faq
 
-GET     /about.html                                       Application.about
+GET     /about.html                         Application.about
 
-# Creating a soup
-GET     /BaseSoup/{id}                          Application.CreateBaseSoup(id)
+GET     /BaseSoup/{id}                      Application.createBaseSoup(id)
 
-GET     /soups.html/{id}                    Application.AddBaseIngredient(id)
+GET     /soups.html/{id}                    Application.addBaseIngredient(id)
 
-GET     /soups.html/PacketSize.html/{id}                          Application.AddPacketSize(id)
+GET     /soups.html/PacketSize.html/{id}                       Application.addPacketSize(id)
 
-GET     /soups.html/RemovePacketSize.html/{id}                    Application.RemovePacketSize(id)
+GET     /soups.html/RemovePacketSize.html/{id}                 Application.removePacketSize(id)
 
-GET     /soups.html/RemoveIngredient.html/{id}                  Application.RemoveIngredient(id)
+GET     /soups.html/RemoveIngredient.html/{id}                 Application.removeIngredient(id)
 
-GET     /soups.html/RemoveSoup.html/{id}                        Application.RemoveSoup(id)
+GET     /soups.html/RemoveSoup.html/{id}                       Application.removeSoup(id)
 
-GET 	/shoppingCart							Application.showshoppingcart
+GET 	/shoppingCart.html						Application.showshoppingcart
 
 GET 	/removeShopSoup/{id}				    Application.shopRemoveSoup(id)
 
 GET 	/removeShopIng/{id}/{ingid}				Application.shopRemoveIng(id,ingid)
+
+GET     /checkout.html                          Application.checkout
+
+GET     /setQuantity                          Application.setQuantity
+
+GET     /index.html                          Application.done
+
+#GET     /ShoppingCart/{id}                 ShoppingCart.setSoupQuantity
+
 # login
 GET     /login.php                              Application.login
 
@@ -43,7 +51,6 @@ GET     /logout.php                             Application.logout
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
-# Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
 # Catch all

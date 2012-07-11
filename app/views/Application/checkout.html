@@ -1,0 +1,281 @@
+#{extends 'main.html' /}
+#{set title:'Contact' /}
+
+<div id="slidedeck_frame" class="skin-slidedeck">
+	<dl id="soup_slidedeck" class="slidedeck">
+    	<dt>Payment Method</dt>
+        <dd>
+			<ul class="slidesVertical">
+	        	<li class="case">
+	        		<div class="case_text">	
+	        			<h4 class="title">Your preferred payment method:</h4>		</br></br>		
+		            	<select style="width:200px" id="selectpayment" onchange="changeSelectPayment(this)">
+							  <option value="1">Bank Transfer</option>
+							  <option value="2">Paypal</option>
+							  <option value="3">Visa</option>
+							  <option value="4">Master Card</option>
+						</select>
+						</br></br>
+						<ul class="button-cart">
+			            	<li><a id="paymentlink" href="" class="addtowishlistsl but-red" >Next Step</a></li>
+			            </ul>
+			     	</div>
+		         </li>
+            </ul>
+
+<!--             <a href="#previous" class="vertical-prev-next previous">Previous</a> -->
+<!--             <a href="#next" class="vertical-prev-next next">Next</a> -->
+		</dd>
+        <dt>Delivery Option</dt>
+	        <dd>
+				<ul class="slidesVertical">
+		        	<li class="case">	
+		        		<div class="case_text">	
+		        			<h4 class="title">Please select Delivery service of your convinence</h4>		</br></br>			
+							<select>
+								<option value="1">DHL Express Delivery 5.90€</option>
+							</select>		
+							</br></br>
+							<h1>Our delivery time</h1>
+							<p class="sub">At the moment it takes about two workdays to produce your order in our little workshop. Please note that shipping to the UK will take a few days.
+							</br></br>
+							<ul class="button-cart">
+				            	<li><a id="deliverylink" href="" class="addtowishlistsl but-red">Next Step</a></li>
+				            </ul>
+			            </div>
+		            </li>
+                  </ul>
+<!--                   <a href="#previous" class="vertical-prev-next previous">Previous</a> -->
+<!--                   <a href="#next" class="vertical-prev-next next">Next</a> -->
+			</dd>
+        <dt>Shipping & Billing </dt>
+        <dd>
+			<ul class="slidesVertical">
+            <li class="case">
+				<div class="case_text">				
+					<h4 class="title">Enter Correct Shipping and billing Information</h4><br>
+	            	#{form @shipping() , id:'shippingform'}
+	            		<fieldset>
+							<label>E-mail Address</label><br />
+							<input type="text"  class="text-input" name="email" value="${flash.email}"/> * 
+							<span class="errorClass" style="color:red">#{error 'email' /}</span><br />
+							<label>First Name</label><br />
+							<input type="text"  class="text-input" name="fname" value="${flash.fname}"/> *
+							<span class="errorClass" style="color:red">#{error 'fname' /}</span><br />
+							<label>Last Name</label><br />
+							<input type="text"  class="text-input" name="lname" value="${flash.lname}"/> *
+							<span class="errorClass" style="color:red">#{error 'lname' /}</span><br />
+							<label>ZipCode</label><br />
+							<input type="text"  class="text-input" name="zipcode" value="${flash.zipcode}"/> *
+							<span class="errorClass" style="color:red">#{error 'zipcode' /}</span><br />
+							<label>Street</label><br />
+							<input type="text"  class="text-input" name="street" value="${flash.street}"/> *
+							<span class="errorClass" style="color:red">#{error 'street' /}</span><br />
+							<label>City</label><br />
+							<input type="text"  class="text-input" name="city" value="${flash.city}"/> *
+							<span class="errorClass" style="color:red">#{error 'city' /}</span><br />
+							<label>Telephone</label><br />
+							<input type="text" class="text-input" name="telephone" value="${flash.telephone}"/> *
+							<span class="errorClass" style="color:red">#{error 'telephone' /}</span><br /><br />
+							
+							<ul class="button-cart">
+		            	<li><input type="button" class="button  but-red" value="Create your account" onclick="submit();"/>
+		            	
+		            </ul>
+						<fieldset>
+					#{/form}
+					
+		        </div>
+           </li>
+<!--                    <a href="#previous" class="vertical-prev-next previous">Previous</a> -->
+<!--                    <a href="#next" class="vertical-prev-next next">Next</a> -->
+		</dd>
+        <dt>Your Comments</dt>
+        <dd>
+        	<ul class="slidesVertical">
+            <li class="case">
+			<div class="case_text">
+				<h4 class="title">Tell us about Your Experience</h4>		</br></br>
+						<p class="sub" id="policycheck" style="color:red"></p>
+				           <textarea rows="10" cols="50">
+							</textarea></br>
+							<input type="checkbox" name="vehicle" value="" /> Yes, I have read and accepted the <a href="" >Terms and Conditons</a> <br />
+							</br></br>
+				<div id="con-butcart">
+					<span class="alignright"><a id="commentlink" href="@{Application.done}" class="addtowishlistsl but-red" onclick="checkboxcheck(this)">Send Order</a></span>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="clear"></div><!-- clear float -->
+			</ul>
+            </li>
+		</dd>
+<!-- 		<dt>Your Order</dt> -->
+<!--         <dd> -->
+<!--         	<ul class="slidesVertical"> -->
+<!--             <li class="case"> -->
+<!-- 			<div class="case_text"> -->
+<!-- 				<h4 class="title">Tell us about Your Experience</h4>		</br></br> -->
+<!-- 				           <textarea rows="10" cols="50"> -->
+<!-- 							</textarea></br> -->
+<!-- 							<input type="checkbox" name="policy" value="" /> Yes, I have read and accepted the <a href="" >Terms and Conditons</a> <br /> -->
+<!-- 							</br></br> -->
+<!-- 				<div id="con-butcart"> -->
+<!-- 					<span class="alignright"><a id="orderlink" href="" class="more but-green">Send Order</a></span> -->
+<!-- 				<div class="clear"></div> -->
+<!-- 			</div> -->
+			
+<!-- 			<div class="clear"></div>clear float -->
+<!-- 			</ul> -->
+<!--             </li> -->
+<!-- 		</dd> -->
+    </dl>
+</div>
+      <script type="text/javascript">
+
+          /** Initiate the SlideDeck */
+          $('.skin-slidedeck dl.slidedeck').slidedeck({
+              scroll: 'stop'
+          }).
+
+          /**
+           * Take advantage of the loaded() method of the SlideDeck library to move the vertical navigation
+           * for from the slide area to the spine area of that slide
+           */
+          loaded(function(){
+              // Add the square navigation to the spine as the dot navigation.
+              $('.skin-slidedeck .slide .verticalSlideNav').each(function(){
+                  $(this).parents('dd.slide').prevAll('dt.spine:first').append(this);
+              });
+
+              // Offset the dot navigation so it can be aligned to the bottom of the dt.
+              $('.skin-slidedeck .spine .verticalSlideNav').each(function(){
+                  var liHeight = $(this).find('li').height();
+                  var ulOffset = ( 62 + ( ($(this).find('li').length - 1) * liHeight ) ) + 'px';
+				  var ulHeight = ( ($(this).find('li').length - 1) * liHeight ) + 'px';
+                  $(this).css({
+                      left: ulOffset, 
+					  height: ulHeight
+                  });
+              });
+
+          }).
+
+          /** Enable vertical slides */
+          vertical({
+              before: function(deck){
+                  if(deck.current == 0){
+                      $(deck.navChildren.context).find('a.vertical-prev-next.previous').hide();
+                  } else {
+                      $(deck.navChildren.context).find('a.vertical-prev-next.previous')[0].style.display = "";
+                  }
+                  if(deck.current == (deck.slides.length - 1)){
+                      $(deck.navChildren.context).find('a.vertical-prev-next.next').hide();
+                  } else {
+                      $(deck.navChildren.context).find('a.vertical-prev-next.next')[0].style.display = "";
+                  }
+              },
+              complete: function(deck){
+                  if(deck.current == 0){
+                      $(deck.navChildren.context).find('a.vertical-prev-next.previous').hide();
+                  } else {
+                      $(deck.navChildren.context).find('a.vertical-prev-next.previous')[0].style.display = "";
+                  }
+                  if(deck.current == (deck.slides.length - 1)){
+                      $(deck.navChildren.context).find('a.vertical-prev-next.next').hide();
+                  } else {
+                      $(deck.navChildren.context).find('a.vertical-prev-next.next')[0].style.display = "";
+                  }
+              }
+          });
+
+          $('.skin-slidedeck a.vertical-prev-next').bind('click', function(event){
+              event.preventDefault();
+              switch(this.href.split('#')[1]){
+                  case "previous":
+                      $('.skin-slidedeck .slidedeck').slidedeck().vertical().prev();
+                  break;
+                  case "next":
+                      $('.skin-slidedeck .slidedeck').slidedeck().vertical().next();
+                  break;
+              }
+          });
+
+          /** Hide the previous vertical slide button */
+          $('.skin-slidedeck dl.slidedeck a.vertical-prev-next.previous').hide();
+
+          $(document).ready(function(){
+
+              /**
+               * Add goTo() click events to the image grid in slide 1 of the vertical slides on 
+               * slide 2 of the horizontal slides in the home page SlideDeck
+               */
+              $('.skin-slidedeck .slidedeck dd.slide_2 .use-cases img').each(function(index){
+                  $(this).click(function(){
+                      $('.skin-slidedeck .slidedeck').slidedeck().vertical().goTo(index+2);
+                  });
+              });
+          });
+          
+          function checkboxchek(control){
+        	  alert("check");
+        	  var checkbox = document.getElementById(control.id);
+        	  
+          }
+          
+        %{
+        	if(session.get("chooseSlider") != null){
+        		vCount = session.get("chooseSlider");
+        	}
+			else {
+				vCount = "0";
+				session.put("chooseSlider",2);
+			}
+		}%
+
+		#{ifErrors}
+		%{
+			session.put("error",1);
+			vCount = "3";
+     		session.put("chooseSlider",3);
+		}%
+		#{/ifErrors}
+	#{if vCount != "0"}
+		#{if vCount == "2"}
+			$('#soup_slidedeck').slidedeck().goToVertical(1,2);
+			%{
+         		session.put("chooseSlider",3);
+			}%
+		#{/if}
+		#{if vCount == "3"}
+			$('#soup_slidedeck').slidedeck().goToVertical(1,3);
+			%{
+        		session.put("chooseSlider",4);
+			}%
+		#{/if}
+		#{if vCount == "4"}
+			$('#soup_slidedeck').slidedeck().goToVertical(1,4);
+			%{
+	       		session.put("chooseSlider",5);
+			}%
+		#{/if}
+		#{if vCount == "5"}
+			$('#soup_slidedeck').slidedeck().goToVertical(1,5);
+			%{
+	       		session.put("chooseSlider",0);
+			}%
+		#{/if}
+	#{/if}
+	#{if vCount == "0"}
+	%{
+ 		session.put("chooseSlider",2);
+	}%
+	#{/if}
+		
+	
+		function changeSelectPayment(control){
+	 		var selected = $('#'+ control.id).val();
+	 	 	$('#'+ control.id).val(selected);	
+	 	}
+      </script>
+	<div class="clear"></div><!-- clear float -->

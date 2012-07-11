@@ -13,15 +13,17 @@
 						#{list items:bs, as:'base'}
 		                      <li class="case">				
 		                      	 <div class="case_image">
-		                               <img src="@{'/public/images/slidedeck-home-images/soupbase_tomatosoup_image.png'}" alt="jquery accordion"/>
+		                            <div class="case_image">
+		                               <img src="../public/images/basesoup/${base.Image}" alt="jquery accordion"/>
+		                           </div>
 		                           </div>
 		                           <div class="case_text">
-		                               <h4 class="title">${base.Name} Soup</h4>
+		                               <h4 class="title">${base.Name} Soup ${base.Image}</h4>
 		                               <p class="sub">subtitle</p>
 		                               <p>${base.Description}</p>
 		                               <p>${base.SoupID}</p>
 									<ul class="button-cart">
-			                        	<li><a id="basesouplink"href="@{Application.CreateBaseSoup(base.SoupID)}" class="addtowishlistsl but-red" onclick="$(this).slidedeck().goToVertical(2,1);">Add to Wishlist</a></li>
+			                        	<li><a id="basesouplink"href="@{Application.createBaseSoup(base.SoupID)}" class="addtowishlistsl but-red" onclick="$(this).slidedeck().goToVertical(2,1);">Add to Wishlist</a></li>
 			                        </ul>
 		                           </div>
 		                       </li>
@@ -37,7 +39,7 @@
                        #{list items:si, as:'ingredient'}
 		                      <li class="case">				
 		                      	 <div class="case_image">
-		                               <img src="@{'/public/images/slidedeck-home-images/soupbase_tomatosoup_image.png'}" alt="jquery accordion"/>
+		                               <img src="../public/images/Ingredients/${ingredient.Image}" alt="jquery accordion"/>
 		                           </div>
 		                           <div class="case_text">
 		                               <h4 class="title">${ingredient.Name}</h4>
@@ -45,7 +47,7 @@
 		                               <p>${ingredient.Description}</p>
 		                               <p>${ingredient.IngID}</p>
 									<ul class="button-cart">
-			                        	<li><a id="ingredientlink" href="@{Application.AddBaseIngredient(ingredient.IngID)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+			                        	<li><a id="ingredientlink" href="@{Application.addBaseIngredient(ingredient.IngID)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 			                        </ul>
 		                           </div>
 		                       </li>
@@ -67,7 +69,7 @@
                                <p class="sub">subtitle</p>
                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
 							<ul class="button-cart">
-	                        	<li><a id="packetsizelink" href="@{Application.AddPacketSize(3)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+	                        	<li><a id="packetsizelink" href="@{Application.addPacketSize(3)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 	                        </ul>
                            </div>
                        </li>
@@ -81,7 +83,7 @@
                                <p class="sub">subtitle</p>
                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
 							<ul class="button-cart">
-	                        	<li><a href="@{Application.AddPacketSize(2)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+	                        	<li><a href="@{Application.addPacketSize(2)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 	                        </ul>
                            </div>
                        </li>
@@ -95,7 +97,7 @@
                                <p class="sub">subtitle</p>
                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing.</p>
 							<ul class="button-cart">
-	                        	<li><a href="@{Application.AddPacketSize(1)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
+	                        	<li><a href="@{Application.addPacketSize(1)}" class="addtowishlistsl but-red">Add to Wishlist</a></li>
 	                        </ul>
                            </div>
                        </li>
@@ -124,7 +126,7 @@
 						<td>${cachedSoup.SoupName} Soup </td>
 						<td><span class="unit-price"></span></td>
 					  	<td><input type="text"  size="3" value=""/></td>
-                        <td style="text-align:left;"><a href="@{Application.RemoveSoup(cachedSoup.SoupID)}">Remove</a></td>
+                        <td style="text-align:left;"><a href="@{Application.removeSoup(cachedSoup.SoupID)}">Remove</a></td>
 						<td style="text-align:right;"><span class="subtotal-price"></span></td>
 					</tr>
 					 #{list items:cachedSoup.IngredientList, as:'ingredient'}
@@ -132,7 +134,7 @@
 							<td>${ingredient.IngredientName}</td>
 							<td><span class="unit-price"></span></td>
 						  	<td><input type="text"  size="3" value=""/></td>
-	                           <td style="text-align:left;"><a href="@{Application.RemoveIngredient(ingredient.IngredientID)}">Remove</a></td>
+	                           <td style="text-align:left;"><a href="@{Application.removeIngredient(ingredient.IngredientID)}">Remove</a></td>
 							<td style="text-align:right;"><span class="subtotal-price"></span></td>
 						</tr>
 					#{/list}
@@ -141,7 +143,7 @@
 							<td>${cachedSoup.SoupSize}</td>
 							<td><span class="unit-price"></span></td>
 						  	<td><input type="text"  size="3" value=""/></td>
-	                           <td style="text-align:left;"><a href="@{Application.RemovePacketSize(cachedSoup.SoupSize)}">Remove</a></td>
+	                           <td style="text-align:left;"><a href="@{Application.removePacketSize(cachedSoup.SoupSize)}">Remove</a></td>
 							<td style="text-align:right;"><span class="subtotal-price"></span></td>
 						</tr>
 					#{/if}
@@ -154,17 +156,7 @@
 				<div class="clear"></div>
 			</div>
 		<div class="clear"></div><!-- clear float -->
-
-
 </div>
-
-               	<!--
-			<h2 class="title">Your Soup Wishlist</h2> 
-			<ul class="button-cart">
-				<li><a href="buying-cart.html" class="addtocartsl but-green">Add to Shopping Cart</a></li>
-		    </ul>
-		-->
-             </dd>
          </dl>
 </div>
 
@@ -195,18 +187,6 @@
 					  height: ulHeight
                   });
               });
-
-              
-//               $("#packetsizelink").click(function() {
-//             	  $('#soup_slidedeck').slidedeck().goToVertical(1,4);
-//               });
-//               $("#basesouplink").click(function() {
-//             	  $('#soup_slidedeck').slidedeck().goToVertical(1,2);
-//               });
-//               $("#ingredientlink").click(function() {
-//             	  $('#soup_slidedeck').slidedeck().goToVertical(1,2);
-//               });
-
           }).
 
           /** Enable vertical slides */
@@ -269,8 +249,9 @@
         %{
         	if(session.get("chooseSlider") != null)
 				vCount = session.get("chooseSlider");
-			else
+			else{
 				vCount = "0";
+			}	
 		}%
 
 	#{if vCount != "0"}
@@ -289,42 +270,5 @@
 	#{/if}
 		
       </script>
-
-	<!--
-	<h2 class="pagetitle">Product Detail</h2>
-	<div id="product-details">
-		<div id="product-img"><img src="images/content/pic5.jpg" alt="" /></div>
-		<div id="product-description">
-			<h2>Soup: X</h2>
-			<h5 class="title-desc">Product description:</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. Curabitur et sodales felis. Aenean tincidunt fermentum luctus. Phasellus posuere iaculis turpis ut gravida. Mauris mattis leo quis diam commodo tempor. Cras malesuada enim sed nunc pulvinar adipiscing. Nam aliquet, enim quis mollis laoreet, eros quam cursus turpis, in porta ligula ligula sed lacus. Maecenas convallis sollicitudin tempus. Donec libero erat, placerat ac viverra sit amet, ultrices non mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-			<div class="one_third">
-				<h5 class="title-desc">Refinements:</h5>
-				<form>
-				<input type="checkbox" name="refinements" value="Paprika" /> Paprika<br />
-				<input type="checkbox" name="refinements" value="Onions" /> Onions<br />
-				<input type="checkbox" name="refinements" value="Breadcrumbs" /> Breadcrumbs
-				</form>													
-			</div>
-			<div class="one_third">
-				<h5 class="title-desc">Size:</h5>
-				<form>
-				<input type="checkbox" name="size" value="Small" checked/> Small<br />
-				<input type="checkbox" name="size" value="Medium" /> Medium<br />
-				<input type="checkbox" name="size" value="Large" /> Large
-				</form>
-			</div>
-			<div class="one_third last">
-				<h5 class="title-desc">Price:</h5>
-                         € 0,00
-			</div>
-			<div class="clear"></div>
-                     <ul class="button-cart">
-                     	<li><a href="#" class="addtowishlist but-red">Add to Wishlist</a></li>
-                     	<li><a href="buying-cart.html" class="addtocart but-green">Add to Cart</a></li>
-                     </ul>
-		</div>
-		<div class="clear"></div>
-	</div>--><!-- #product-details -->
 
 	<div class="clear"></div><!-- clear float -->

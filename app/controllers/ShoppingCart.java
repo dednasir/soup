@@ -3,6 +3,7 @@ package controllers;
 import java.io.Serializable;
 import java.util.*;
 
+import play.cache.Cache;
 import play.mvc.Controller;
 
 public class ShoppingCart extends Controller implements Serializable {
@@ -93,5 +94,38 @@ public class ShoppingCart extends Controller implements Serializable {
             }
         }
         return false;
+    }
+    
+    public static void setQuantity(String id,int quantity){
+    	int soupid = Integer.parseInt(id);
+    	double subtotal=0.0,total=0.0;
+    	ShoppingCart objShoppingCart;
+    	if(Cache.get("ShoppingCart", ShoppingCart.class) != null ) {
+            objShoppingCart = Cache.get("ShoppingCart", ShoppingCart.class);
+	    	for(int count=0;count < objShoppingCart.SoupList.size(); count++) {
+	            Object obj = objShoppingCart.SoupList.get(count);
+	            Soups objSoup = (Soups)obj;
+	            if(objSoup.getSoupID() == soupid) {
+	            	objSoup.setSoupQuantitiy(quantity);
+	            	subtotal = objSoup.getTotalPrice();
+	            }
+	        }
+        	total = objShoppingCart.getTotalPrice();
+        	renderText(subtotal +"," + total);
+    	}
+	    renderText("id" + id + "quantity" + quantity);
+    }
+    public String setSoupQuantity(String id,int quantity){
+    	 
+    	int soupid = Integer.parseInt(id);	
+        for(int count=0;count < SoupList.size(); count++) {
+            Object obj = SoupList.get(count);
+            Soups objSoup = (Soups)obj;
+            if(objSoup.getSoupID() == soupid) {
+            	objSoup.setSoupQuantitiy(quantity);
+                renderText("what");
+            }
+        }
+        return "shopping function";
     }
 }
