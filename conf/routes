@@ -38,7 +38,7 @@ GET     /checkout.html                          Application.checkout
 
 GET     /setQuantity                          Application.setQuantity
 
-GET     /index.html                          Application.done
+GET     /done.html                          Application.done
 
 #GET     /ShoppingCart/{id}                 ShoppingCart.setSoupQuantity
 

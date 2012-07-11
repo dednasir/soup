@@ -29,7 +29,11 @@
 			<div id="maincontent">
                 <h2 class="pagetitle">Our Blog</h2>
                 <div class="post">
+                
+                #{list items:bl, as:'blog'}
+                
                 	<ul class="entry-utility">
+                	<h4 class="title">${blog.BlogName} Blog</h4>
                     	<li class="i-user">Post by: <a href="#">Admin</a></li>  
                         <li class="i-comm"><a href="#">10 Comments</a></li>  
                         <li class="i-tag"><a href="#">Soups</a></li>
@@ -37,57 +41,15 @@
                     <div class="post-shadow">
                     <img src="@{'/public/images/content/post1.jpg'}" alt="" />
                     </div>
-                    <span class="postdate">June 28, 2012</span> 
+                    <span class="postdate">July 12, 2012</span> 
                     <h2 class="posttitle"><a href="single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </a></h2>
 
                     <div class="entry-content">
-                        <p>Fusce malesuada urna nec quam rhoncus sodales. In iaculis augue augue. Fusce imperdiet placerat dictum. Mauris mauris quam, pretium sollicitudin congue eu, malesuada non dui. Sed nec arcu quis nisl rhoncus vestibulum. Quisque facilisis imperdiet rhoncus. Nam porta libero id orci ornare id pellentesque sapien suscipit. Vivamus non dapibus sapien. Fusce pellentesque, augue eget euismod scelerisque, diam justo accumsan odio, non bibendum justo risus et nisl.</p>
+		              <p>${blog.Desc}</p>
                         <a class="more" href="single.html">Continue Reading</a>
                     </div><!-- end .entry-content -->
+                    
+                    #{/list}
               </div><!-- end .post1 -->
 
-                <div class="post">
-                	<ul class="entry-utility">
-                    	<li class="i-user">Post by: <a href="#">Admin</a></li>  
-                        <li class="i-comm"><a href="#">10 Comments</a></li>  
-                        <li class="i-tag"><a href="#">Soups</a></li>
-                    </ul>
-                    <div class="post-shadow">
-                    <img src="@{'/public/images/content/post2.jpg'}" alt="" />
-                    </div>
-                    <span class="postdate">June 25, 2012</span> 
-                    <h2 class="posttitle"><a href="single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </a></h2>
-
-                    <div class="entry-content">
-                        <p>Fusce malesuada urna nec quam rhoncus sodales. In iaculis augue augue. Fusce imperdiet placerat dictum. Mauris mauris quam, pretium sollicitudin congue eu, malesuada non dui. Sed nec arcu quis nisl rhoncus vestibulum. Quisque facilisis imperdiet rhoncus. Nam porta libero id orci ornare id pellentesque sapien suscipit. Vivamus non dapibus sapien. Fusce pellentesque, augue eget euismod scelerisque, diam justo accumsan odio, non bibendum justo risus et nisl.</p>
-                        <a class="more" href="single.html">Continue Reading</a>
-                    </div><!-- end .entry-content -->
-              </div><!-- end .post1 -->
-
-                <div class="post">
-                	<ul class="entry-utility">
-                    	<li class="i-user">Post by: <a href="#">Admin</a></li>  
-                        <li class="i-comm"><a href="#">10 Comments</a></li>  
-                        <li class="i-tag"><a href="#">Soups</a></li>
-                    </ul>
-                    <div class="post-shadow">
-                    <img src="@{'/public/images/content/post3.jpg'}" alt="" />
-                    </div>
-                    <span class="postdate">June 20, 2012</span> 
-                    <h2 class="posttitle"><a href="single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </a></h2>
-
-                    <div class="entry-content">
-                        <p>Fusce malesuada urna nec quam rhoncus sodales. In iaculis augue augue. Fusce imperdiet placerat dictum. Mauris mauris quam, pretium sollicitudin congue eu, malesuada non dui. Sed nec arcu quis nisl rhoncus vestibulum. Quisque facilisis imperdiet rhoncus. Nam porta libero id orci ornare id pellentesque sapien suscipit. Vivamus non dapibus sapien. Fusce pellentesque, augue eget euismod scelerisque, diam justo accumsan odio, non bibendum justo risus et nisl.</p>
-                        <a class="more" href="single.html">Continue Reading</a>
-                    </div><!-- end .entry-content -->
-              </div><!-- end .post1 -->
-              
-                <div class="pagenavi">
-                   <a href="" class="page">Previous</a><a href="" class="current">Next</a>
-                </div><!-- end pagenavi -->
-            
-			  <div class="clear"></div><!-- clear float -->
-			</div><!-- end #maincontent-->
-            
-            
-            <div class="clear"></div><!-- clear float -->
+               

@@ -29,7 +29,15 @@
 							#{/list}
 							<tr class="even"> 
 								<td><img src="@{'/public/images/Shoppingcart/sc_packsize.jpg'}" alt="" /><br />${Soup.SoupSize}</td>
-								<td><span class="unit-price">€ 0,00</span></td>
+								#{if Soup.SoupSize == 'Small' }
+   									<td><span class="unit-price">3,50 € </span></td>
+								#{/if}
+								#{elseif Soup.SoupSize == 'Medium'}
+								    <td><span class="unit-price">4,50 € </span></td>
+								#{/elseif}
+								#{elseif Soup.SoupSize == 'Large'}
+								    <td><span class="unit-price">6,00 € </span></td>
+								#{/elseif}
 							  	<td><!--<input type="text"  size="3" value="1"/>--></td>
 	                            <td style="text-align:left;"><!--<a href="#">Remove</a>--></td>
 								<td style="text-align:right;"><!--<span class="subtotal-price">€ 0,00</span>--></td>

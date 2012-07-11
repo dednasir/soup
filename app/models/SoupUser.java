@@ -60,6 +60,12 @@ public class SoupUser extends Model {
         return find("byEmailAndPassword", email, password).first();
     }
     
+    public static void setPassowrd(SoupUser user, String password) {
+    		user.Password = password;
+    		user.save();
+        //return find("byEmailAndPassword", email, password).first();
+    }
+    
     public static SoupUser UserExist(String email) {
         return find("byEmail", email).first();
     }

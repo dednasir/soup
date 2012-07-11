@@ -40,6 +40,27 @@ BaseSoup(asparagus):
     value:          5
     SoupID:         3
     Image:          Asparagus_Soup.jpg
+ 
+BaseSoup(melon):
+    Name:           Melon Soup  
+    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
+    value:          5
+    SoupID:         4
+    Image:          Melon_Soup.jpg
+ 
+BaseSoup(potato):
+    Name:           Potato Soup  
+    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
+    value:          3
+    SoupID:         5
+    Image:          Potato_Soup.jpg
+
+BaseSoup(fennel):
+    Name:           Fennel Soup  
+    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
+    value:          7
+    SoupID:         6
+    Image:          Fennel_Soup.jpg
     
 SoupIngredients(paprika):
     Name:           Paprika   
@@ -61,4 +82,25 @@ SoupIngredients(Mushrooms):
     value:          5
     IngID:          3
     Image:          Mushrooms.jpg
-          
+
+SoupIngredients(Avocado):
+    Name:           Avocado  
+    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas.
+    value:          2
+    IngID:          4
+    Image:          Avocado.jpg
+
+SoupIngredients(Peas):
+    Name:           Peas  
+    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas.
+    value:          3
+    IngID:          5
+    Image:          Peas.jpg   
+    
+Blog(blogone):
+    BlogID:         1
+    Desc:           this is our first blog just to see how things are going
+    BlogName:       Going Live of SoupLove.de
+    BlogDate:       07-11-2012
+
+    

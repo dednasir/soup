@@ -52,39 +52,74 @@
         <dd>
 			<ul class="slidesVertical">
             <li class="case">
-				<div class="case_text">				
-					<h4 class="title">Enter Correct Shipping and billing Information</h4><br>
-	            	#{form @shipping() , id:'shippingform'}
+				<div class="case_text">	
+				 	%{
+                    	if(session.get("user") != null)
+   							user = true;
+   						else
+   							user = false;
+					}%
+ 
+ 					#{if user}
+ 					<script type="text/javascript">
+ 						alert('hello');
+ 						</script>
+ 						<h4 class="title">Shipping and billing Information</h4><br>
+ 						#{form @shipping() , id:'shippingform'}
 	            		<fieldset>
 							<label>E-mail Address</label><br />
-							<input type="text"  class="text-input" name="email" value="${flash.email}"/> * 
-							<span class="errorClass" style="color:red">#{error 'email' /}</span><br />
+							<input type="text"  class="text-input" name="email" value="${userinfo.email}" readonly="readonly"/><br />
 							<label>First Name</label><br />
-							<input type="text"  class="text-input" name="fname" value="${flash.fname}"/> *
-							<span class="errorClass" style="color:red">#{error 'fname' /}</span><br />
+							<input type="text"  class="text-input" name="fname" value="${userinfo.FirstName}" readonly="readonly"/> <br />
 							<label>Last Name</label><br />
-							<input type="text"  class="text-input" name="lname" value="${flash.lname}"/> *
-							<span class="errorClass" style="color:red">#{error 'lname' /}</span><br />
+							<input type="text"  class="text-input" name="lname" value="${userinfo.LastName}" readonly="readonly"/><br />
 							<label>ZipCode</label><br />
-							<input type="text"  class="text-input" name="zipcode" value="${flash.zipcode}"/> *
-							<span class="errorClass" style="color:red">#{error 'zipcode' /}</span><br />
+							<input type="text"  class="text-input" name="zipcode" value="${userinfo.ZipCode}" readonly="readonly"/><br />
 							<label>Street</label><br />
-							<input type="text"  class="text-input" name="street" value="${flash.street}"/> *
-							<span class="errorClass" style="color:red">#{error 'street' /}</span><br />
-							<label>City</label><br />
-							<input type="text"  class="text-input" name="city" value="${flash.city}"/> *
-							<span class="errorClass" style="color:red">#{error 'city' /}</span><br />
-							<label>Telephone</label><br />
-							<input type="text" class="text-input" name="telephone" value="${flash.telephone}"/> *
-							<span class="errorClass" style="color:red">#{error 'telephone' /}</span><br /><br />
+							<input type="text"  class="text-input" name="street" value="${userinfo.Street}" readonly="readonly"/><br />
+<!-- 							<label>City</label><br /> -->
+<!-- 							<input type="text"  class="text-input" name="city" value="" /><br /> -->
+<!-- 							<label>Telephone</label><br /> -->
+<!-- 							<input type="text" class="text-input" name="telephone" value=""/><br /><br /> -->
 							
 							<ul class="button-cart">
-		            	<li><input type="button" class="button  but-red" value="Create your account" onclick="submit();"/>
-		            	
-		            </ul>
-						<fieldset>
-					#{/form}
-					
+		            			<li><a id="deliverylink" href="" class="addtowishlistsl but-red">Next Step</a></li>
+		            		</ul>
+		            		</fieldset>
+		            		#{/form}
+					#{/if}
+                    #{else}
+						<h4 class="title">Enter Correct Shipping and billing Information</h4><br>
+		            	#{form @shipping() , id:'shippingform'}
+		            		<fieldset>
+								<label>E-mail Address</label><br />
+								<input type="text"  class="text-input" name="email" value="${flash.email}"/> * 
+								<span class="errorClass" style="color:red">#{error 'email' /}</span><br />
+								<label>First Name</label><br />
+								<input type="text"  class="text-input" name="fname" value="${flash.fname}"/> *
+								<span class="errorClass" style="color:red">#{error 'fname' /}</span><br />
+								<label>Last Name</label><br />
+								<input type="text"  class="text-input" name="lname" value="${flash.lname}"/> *
+								<span class="errorClass" style="color:red">#{error 'lname' /}</span><br />
+								<label>ZipCode</label><br />
+								<input type="text"  class="text-input" name="zipcode" value="${flash.zipcode}"/> *
+								<span class="errorClass" style="color:red">#{error 'zipcode' /}</span><br />
+								<label>Street</label><br />
+								<input type="text"  class="text-input" name="street" value="${flash.street}"/> *
+								<span class="errorClass" style="color:red">#{error 'street' /}</span><br />
+								<label>City</label><br />
+								<input type="text"  class="text-input" name="city" value="${flash.city}"/> *
+								<span class="errorClass" style="color:red">#{error 'city' /}</span><br />
+								<label>Telephone</label><br />
+								<input type="text" class="text-input" name="telephone" value="${flash.telephone}"/> *
+								<span class="errorClass" style="color:red">#{error 'telephone' /}</span><br /><br />
+								
+								<ul class="button-cart">
+					            	<li><input type="button" class="button  but-red" value="Next Step" onclick="submit();"/>
+					            </ul>
+							<fieldset>
+						#{/form}
+					#{/else} 
 		        </div>
            </li>
 <!--                    <a href="#previous" class="vertical-prev-next previous">Previous</a> -->
@@ -102,7 +137,7 @@
 							<input type="checkbox" name="vehicle" value="" /> Yes, I have read and accepted the <a href="" >Terms and Conditons</a> <br />
 							</br></br>
 				<div id="con-butcart">
-					<span class="alignright"><a id="commentlink" href="@{Application.done}" class="addtowishlistsl but-red" onclick="checkboxcheck(this)">Send Order</a></span>
+					<span class="alignright"><a id="commentlink" href="@{Application.done}" class="addtowishlistsl but-red">Send Order</a></span>
 				<div class="clear"></div>
 			</div>
 			
@@ -224,12 +259,11 @@
           }
           
         %{
-        	if(session.get("chooseSlider") != null){
-        		vCount = session.get("chooseSlider");
+        	if(session.get("selectSlider") != null){
+        		vCount = session.get("selectSlider");
         	}
 			else {
 				vCount = "0";
-				session.put("chooseSlider",2);
 			}
 		}%
 
@@ -237,38 +271,38 @@
 		%{
 			session.put("error",1);
 			vCount = "3";
-     		session.put("chooseSlider",3);
+     		session.put("selectSlider",3);
 		}%
 		#{/ifErrors}
 	#{if vCount != "0"}
 		#{if vCount == "2"}
 			$('#soup_slidedeck').slidedeck().goToVertical(1,2);
 			%{
-         		session.put("chooseSlider",3);
+         		session.put("selectSlider",3);
 			}%
 		#{/if}
 		#{if vCount == "3"}
 			$('#soup_slidedeck').slidedeck().goToVertical(1,3);
 			%{
-        		session.put("chooseSlider",4);
+        		session.put("selectSlider",4);
 			}%
 		#{/if}
 		#{if vCount == "4"}
 			$('#soup_slidedeck').slidedeck().goToVertical(1,4);
 			%{
-	       		session.put("chooseSlider",5);
+	       		session.put("selectSlider",0);
 			}%
 		#{/if}
-		#{if vCount == "5"}
-			$('#soup_slidedeck').slidedeck().goToVertical(1,5);
-			%{
-	       		session.put("chooseSlider",0);
-			}%
-		#{/if}
+// 		#{if vCount == "5"}
+// 			$('#soup_slidedeck').slidedeck().goToVertical(1,5);
+// 			%{
+// 	       		session.put("selectSlider",0);
+// 			}%
+// 		#{/if}
 	#{/if}
 	#{if vCount == "0"}
 	%{
- 		session.put("chooseSlider",2);
+ 		session.put("selectSlider",2);
 	}%
 	#{/if}
 		

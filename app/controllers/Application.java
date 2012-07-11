@@ -19,24 +19,6 @@ import notifiers.Mails;
 import models.*;
 
 public class Application extends Controller {
-
-    @Before
-    @Finally
-    static void addUser() {
-        String user = connected();
-        if(user != null) {
-            renderArgs.put("user", user);
-        }
-    }
-    
-    static String connected() {
-        String user = session.get("user");
-        if(user != null) {
-            return user;
-        }
-        else
-            return null;
-    }
     
     public static void changeLanguage(String language) {
         if(language.matches("de"))
@@ -58,6 +40,7 @@ public class Application extends Controller {
         SoupUser user = SoupUser.connect(email, password);
         if(user != null) {
             session.put("user", user.FirstName);
+            session.put("useremail", user.email);
             String fullname = user.toString();
             renderTemplate("@Application.index",fullname);
         }
@@ -112,8 +95,17 @@ public class Application extends Controller {
     }
     
     public static void done(){
-    	String completesg = "Thank You we have received your Order. You receive it within half hour";
-        renderTemplate("@Application.index",completesg);
+    	
+    	if(Cache.safeDelete("ShoppingCart")) {
+    		session.remove("selectSlider");
+          	String completesg = "Thank You we have received your Order. You receive your soup within half hour";
+          	renderTemplate("@Application.index",completesg);
+    	}else{
+    		Cache.delete("ShoppingCart");
+    		session.remove("selectSlider");
+    		String completesg = "oops there was an error in finishing session";
+          	renderTemplate("@Application.index",completesg);
+    	}
     }
     
     public static void verifyemail(){
@@ -160,7 +152,7 @@ public class Application extends Controller {
             else if (id.matches("2"))
                 bs.setSoupSize("Medium");
             else if(id.matches("3"))
-                bs.setSoupSize("small");
+                bs.setSoupSize("Small");
             
             session.put("chooseSlider", 4);
            
@@ -253,11 +245,20 @@ public class Application extends Controller {
 
     
     public static void checkout() {
-        render();
+    	if(session.get("user") != null) {
+            String stremail = session.get("useremail");
+            SoupUser user = SoupUser.UserExist(stremail);
+            if(user != null){
+            	renderArgs.put("userinfo", user );
+            	render();
+            }
+        }
+    	render();
+        
     }
 
     public static void shoppingcart() {
-        
+    	session.remove("chooseSlider");
         ShoppingCart objShoppingCart;
         if(session.get("basesoup") != null) {
             String strid = session.get("basesoup");
@@ -279,6 +280,7 @@ public class Application extends Controller {
                 Cache.set("ShoppingCart", objShoppingCart, "30mn");
             }
             session.remove("basesoup");
+            
             if(Cache.safeDelete("soup_" + strid))
                 render(objShoppingCart);
             render(objShoppingCart);
@@ -336,7 +338,8 @@ public class Application extends Controller {
     }
     
     public static void blog() {
-        render();
+    	List<Blog> bl = Blog.findAll();                   
+        render(bl);
     }
     
     public static void contact() {
