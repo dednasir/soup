@@ -22,43 +22,78 @@ SoupUser(jeff):
     
 BaseSoup(tomato):
     Name:           Tomato   
-    Description:    this is a soup it is very good soup
-    value:          10
+    Description:    Tomatoes; Cucumber; Breadcrumbs; Garlic
+    value:          3.00
     SoupID:         1
     Image:          Tomato_Soup.jpg
     
 BaseSoup(carrot):
     Name:           Carrot   
-    Description:    this is a soup it is very good soup
-    value:          3
+    Description:    Carrots; Parsley
+    value:          3.00
     SoupID:         2
     Image:          Carrot_Soup.jpg
     
 BaseSoup(asparagus):
-    Name:           Asparagus Cream  
-    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
-    value:          5
+    Name:           Asparagus  
+    Description:    Asparagus; Potatoes; Lemons 
+    value:          3.00
     SoupID:         3
     Image:          Asparagus_Soup.jpg
     
+BaseSoup(fennel):
+    Name:           Fennel  
+    Description:    Fennel; Chervil 
+    value:          3.00
+    SoupID:         4
+    Image:          Fennel_Soup.jpg
+    
+BaseSoup(melon):
+    Name:           Melon  
+    Description:    Melon; Mint leaves; Chili powder; Pistachios 
+    value:          3.00
+    SoupID:         5
+    Image:          Melon_Soup.jpg
+    
+BaseSoup(potato):
+    Name:           Potato  
+    Description:    Potatoes; Leeks; Chives
+    value:          3.00
+    SoupID:         6
+    Image:          Potato_Soup.jpg
+    
 SoupIngredients(paprika):
     Name:           Paprika   
-    Description:    this is a soup it is very good soup
-    value:          10
-    IngID:             1
+    Description:    
+    value:          0.50
+    IngID:          1
     Image:          Paprika.jpg
   
-SoupIngredients(Onions):
+SoupIngredients(onions):
     Name:           Onions   
-    Description:    this is a soup it is very good soup
-    value:          3
-    IngID:             2
+    Description:    
+    value:          0.50
+    IngID:          2
     Image:          Onions.jpg
     
-SoupIngredients(Mushrooms):
+SoupIngredients(mushrooms):
     Name:           Mushrooms  
-    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas.
-    value:          5
+    Description:    
+    value:          0.50
     IngID:          3
     Image:          Mushrooms.jpg
+    
+SoupIngredients(avocado):
+    Name:           Avocado  
+    Description:    
+    value:          0.50
+    IngID:          4
+    Image:          Avocado.jpg
+    
+SoupIngredients(peas):
+    Name:           Peas  
+    Description:    
+    value:          0.50
+    IngID:          5
+    Image:          Peas.jpg
           

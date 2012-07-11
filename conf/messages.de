@@ -1,10 +1,13 @@
-menu.login=anmelden
-menu.logout=abmelden
-menu.help=helfen
-menu.shoppingcart=Einkaufswagen
-menu.soups=suppe
-menu.ownsoup=ihre suppe
-menu.customize=vor customized suppe
-hello=willkommen
-logodesc=Leckere Suppen für Busy People
-popular=Am beliebtesten Suppen
+menu.login=Anmelden
+menu.logout=Abmelden
+menu.help=Hilfe
+menu.shoppingcart=Warenkorb
+menu.soups=Suppe
+menu.ownsoup=Mixen Sie Ihre Suppe
+menu.customize=Vorgefertigte Suppen
+menu.aboutus=Über uns
+menu.crew=Crew
+menu.support=Support
+menu.contact=Kontakt
+menu.privacy=Datenschutz
+

@@ -160,7 +160,7 @@ public class Application extends Controller {
             else if (id.matches("2"))
                 bs.setSoupSize("Medium");
             else if(id.matches("3"))
-                bs.setSoupSize("small");
+                bs.setSoupSize("Small");
             
             session.put("chooseSlider", 4);
            
