@@ -84,6 +84,7 @@ public class Application extends Controller {
 
         users.create();
         session.put("user", users.toString());
+        session.put("useremail", users.email.toString());
         String fullname = users.toString();
         Mails.welcome(users);
         //flash.success("Welcome, " + user.fullname);
