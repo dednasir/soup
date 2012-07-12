@@ -1,8 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'Blog' /}
 
-
-
 <div id="side">
 				<ul>
 					<li class="widget-container">
@@ -31,42 +29,20 @@
                 #{list items:bl, as:'blog'}
                 
                 	<ul class="entry-utility">
-<<<<<<< HEAD
-                	<h4 class="title">${blog.BlogName} Blog</h4>
-                    	<li class="i-user">Post by: <a href="#">Admin</a></li>  
-                        <li class="i-comm"><a href="#">10 Comments</a></li>  
-                        <li class="i-tag"><a href="#">Soups</a></li>
-=======
                     	<li class="i-user">Post by: <a href="#">Bernhard Lichtinger</a></li>  
                         <li class="i-comm"><a href="#">0 Comments</a></li>  
                         <li class="i-tag"><a href="#">News</a></li>
->>>>>>> e6bd508d29025823c1d692bc6a01df64022640cd
                     </ul>
                     <div class="post-shadow">
                     <img src="@{'/public/images/content/post1.jpg'}" alt="" />
                     </div>
-<<<<<<< HEAD
-                    <span class="postdate">July 12, 2012</span> 
-                    <h2 class="posttitle"><a href="single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </a></h2>
+
+                    <span class="postdate">July 14, 2012</span> 
+                    <h2 class="posttitle">${blog.BlogName}</h2>
 
                     <div class="entry-content">
 		              <p>${blog.Desc}</p>
-                        <a class="more" href="single.html">Continue Reading</a>
-                    </div><!-- end .entry-content -->
-                    
-                    #{/list}
-              </div><!-- end .post1 -->
-
-               
-=======
-                    <span class="postdate">July 14, 2012</span> 
-                    <h2 class="posttitle"><a href="single.html">Going Live of SoupLove.de</a></h2>
-
-                    <div class="entry-content">
-                        <p>
-                        Hi guys, we are very proud to annouce that SoupLove.de is going live today.
-                        </p>
-                        <p>
+		              <p>
                         In order to give you guys kind of a incentive to customize Your soup, 
 shipping costs are free for one week. Take your time and customize your the soup the way you like it most. If you don't know what to put into you soup you can choose a pre-customized soup as well. 
 Therefore we have several soups to offer: Precostumized 1, Precustomized 2, Precustomized 3  
@@ -83,6 +59,8 @@ Cheers</br>
 The Crew of SoupLove</p>
                         <!--<a class="more" href="single.html">Continue Reading</a>-->
                     </div><!-- end .entry-content -->
+                    
+                    #{/list}
               </div><!-- end .post1 -->
               
                 <div class="pagenavi">
@@ -94,4 +72,3 @@ The Crew of SoupLove</p>
             
             
             <div class="clear"></div><!-- clear float -->
->>>>>>> e6bd508d29025823c1d692bc6a01df64022640cd

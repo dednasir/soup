@@ -16,23 +16,23 @@ GET     /faq.html                           Application.faq
 
 GET     /about.html                         Application.about
 
-GET     /BaseSoup/{id}                      Application.createBaseSoup(id)
+GET     /BaseSoup/{id}                      Application.createBaseSoup
 
-GET     /soups.html/{id}                    Application.addBaseIngredient(id)
+GET     /soups.html/{id}                    Application.addBaseIngredient
 
-GET     /soups.html/PacketSize.html/{id}                       Application.addPacketSize(id)
+GET     /soups.html/PacketSize.html/{id}                       Application.addPacketSize
 
-GET     /soups.html/RemovePacketSize.html/{id}                 Application.removePacketSize(id)
+GET     /soups.html/RemovePacketSize.html/{id}                 Application.removePacketSize
 
-GET     /soups.html/RemoveIngredient.html/{id}                 Application.removeIngredient(id)
+GET     /soups.html/RemoveIngredient.html/{id}                 Application.removeIngredient
 
-GET     /soups.html/RemoveSoup.html/{id}                       Application.removeSoup(id)
+GET     /soups.html/RemoveSoup.html/{id}                       Application.removeSoup
 
 GET 	/shoppingCart.html						Application.showshoppingcart
 
-GET 	/removeShopSoup/{id}				    Application.shopRemoveSoup(id)
+GET 	/removeShopSoup/{id}				    Application.shopRemoveSoup
 
-GET 	/removeShopIng/{id}/{ingid}				Application.shopRemoveIng(id,ingid)
+GET 	/removeShopIng/{id}/{ingid}				Application.shopRemoveIng
 
 GET     /checkout.html                          Application.checkout
 

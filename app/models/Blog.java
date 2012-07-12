@@ -30,23 +30,20 @@ public class Blog extends Model {
 	    @MinSize(1)
 	    public int BlogID;
 	    
-	    public Blog(String BlogName, int BlogID, String Desc,Date date1) {
+	    public Blog(String BlogName, int BlogID, String Desc) {
 	        this.BlogName = BlogName;
 	        this.BlogID =BlogID;
 	        this. Desc = Desc;
-	        //this.date =date;
 	    }
 	    
 	    public Blog() {
 	        this.BlogName = null;
 	        this.Desc = null;
-	        //this.date = null;
 	        this.BlogID = 0;
 	    }
 	    public Blog(Blog bl) {
 	        this.BlogName = bl.BlogName;
 	        this.Desc = bl.Desc;
-	        //this.date = bl.date;
 	        this.BlogID = bl.BlogID;
 	    }
 

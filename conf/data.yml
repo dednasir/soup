@@ -40,27 +40,6 @@ BaseSoup(asparagus):
     value:          3.00
     SoupID:         3
     Image:          Asparagus_Soup.jpg
- 
-BaseSoup(melon):
-    Name:           Melon Soup  
-    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
-    value:          5
-    SoupID:         4
-    Image:          Melon_Soup.jpg
- 
-BaseSoup(potato):
-    Name:           Potato Soup  
-    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
-    value:          3
-    SoupID:         5
-    Image:          Potato_Soup.jpg
-
-BaseSoup(fennel):
-    Name:           Fennel Soup  
-    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas. 
-    value:          7
-    SoupID:         6
-    Image:          Fennel_Soup.jpg
     
 BaseSoup(fennel):
     Name:           Fennel  
@@ -103,30 +82,6 @@ SoupIngredients(mushrooms):
     value:          0.50
     IngID:          3
     Image:          Mushrooms.jpg
-<<<<<<< HEAD
-
-SoupIngredients(Avocado):
-    Name:           Avocado  
-    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas.
-    value:          2
-    IngID:          4
-    Image:          Avocado.jpg
-
-SoupIngredients(Peas):
-    Name:           Peas  
-    Description:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada viverra velit et egestas.
-    value:          3
-    IngID:          5
-    Image:          Peas.jpg   
-    
-Blog(blogone):
-    BlogID:         1
-    Desc:           this is our first blog just to see how things are going
-    BlogName:       Going Live of SoupLove.de
-    BlogDate:       07-11-2012
-
-    
-=======
     
 SoupIngredients(avocado):
     Name:           Avocado  
@@ -140,6 +95,9 @@ SoupIngredients(peas):
     Description:    
     value:          0.50
     IngID:          5
-    Image:          Peas.jpg
-          
->>>>>>> e6bd508d29025823c1d692bc6a01df64022640cd
+    Image:          Peas.jpg  
+    
+Blog(blogone):
+    BlogID:         1    
+    BlogName:       Going Live of SoupLove.de  
+    Desc:           Hi guys, we are very proud to annouce that SoupLove.de is going live today.          
