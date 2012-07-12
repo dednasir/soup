@@ -353,7 +353,7 @@ ul#main_menu .sub ul li h2 {
 /* HOME */
 
 ul.banner{ margin:0px; padding:10px 0px 0px 0px;}
-ul.banner li{ list-style-type:none; display:inline; padding-right:13px;}
+ul.banner li{ list-style-type:none; display:inline; padding-right:40px;}
 ul.banner li:last-child{ padding-right:0px;}
 
 
