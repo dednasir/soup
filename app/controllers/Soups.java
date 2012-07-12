@@ -11,6 +11,7 @@ public class Soups implements Serializable{
     private String SoupName;
     private double SoupPrice;
     private String SoupSize;
+    private double SoupSizePrice;
     private String SoupImage;
     private int SoupQuantity;
     private ArrayList IngredientList;
@@ -21,6 +22,7 @@ public class Soups implements Serializable{
         this.SoupName = soupname;
         this.SoupPrice = price;
         this.SoupSize = null;
+        this.SoupSizePrice = 0.0;
         this.SoupImage = image;
         this.SoupQuantity = 1;
         IngredientList = new ArrayList();
@@ -48,6 +50,10 @@ public class Soups implements Serializable{
     
     public void setSoupSize(String s) {
         SoupSize = s;
+    }
+    
+    public void setSoupSizePrice(double s) {
+        SoupSizePrice = s;
     }
     
     public String getSoupImage() {
@@ -90,7 +96,7 @@ public class Soups implements Serializable{
             Ingredient p = (Ingredient)obj;
             totalPrice = totalPrice + p.getPrice();
         }
-        return (totalPrice + this.SoupPrice)*this.SoupQuantity;
+        return (totalPrice + this.SoupPrice + this.SoupSizePrice)*this.SoupQuantity;
     }
 
 }

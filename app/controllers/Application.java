@@ -148,13 +148,18 @@ public class Application extends Controller {
             String strid = session.get("basesoup");
             
             Soups bs = Cache.get("soup_"+strid,Soups.class);
-            if(id.matches("1"))
+            if(id.matches("1")){
                 bs.setSoupSize("Large");
-            else if (id.matches("2"))
+                bs.setSoupSizePrice(3.00);
+            }
+            else if (id.matches("2")){
                 bs.setSoupSize("Medium");
-            else if(id.matches("3"))
+                bs.setSoupSizePrice(1.50);
+            }
+            else if(id.matches("3")){
                 bs.setSoupSize("Small");
-            
+                bs.setSoupSizePrice(0.50);
+            }
             session.put("chooseSlider", 4);
            
             Cache.set("soup_"+strid, bs);
