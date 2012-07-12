@@ -15,7 +15,7 @@ public class Mails extends Mailer {
    public static void welcome(SoupUser user) {
       setSubject("Welcome %s", user.toString());
       addRecipient(user.email);
-      setFrom("Me <dednasir@yahoo.com>");
+      setFrom("SoupLoveWelcome <dednasir@yahoo.com>");
       //addAttachment(Play.getFile("rules.pdf"));
       send(user);
       Application.verifyemail();
@@ -28,7 +28,7 @@ public class Mails extends Mailer {
 	   byte[] aesKey = new byte[16]; // 16 bytes = 128 bits
 	   ranGen.nextBytes(aesKey);
       String newpassword = aesKey.toString();
-      setFrom("Soup <nasir.ali9@hotmail.com>");
+      setFrom("SoupLoveLostPassword <nasir.ali9@hotmail.com>");
       setSubject("Your password has been reset");
       addRecipient(user.email);
       SoupUser.setPassowrd(user, newpassword);
