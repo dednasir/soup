@@ -16,6 +16,12 @@ GET     /faq.html                           Application.faq
 
 GET     /about.html                         Application.about
 
+GET		/support.html						Application.support
+
+GET		/privay.html						Application.privacy
+
+GET 	/contact.html						Application.contact
+
 GET     /BaseSoup/{id}                      Application.createBaseSoup
 
 GET     /soups.html/{id}                    Application.addBaseIngredient
