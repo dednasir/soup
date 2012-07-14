@@ -13,43 +13,43 @@
 						#{list items:objShoppingCart.SoupList, as:'Soup'}
 							<tr class="even">
 								<td><img src="../public/images/Shoppingcart/sc_${Soup.SoupImage}" alt="base soup" /><br />${Soup.SoupName}</td>
-								<td><span class="unit-price" id="shopSoupPrice">€ ${Soup.SoupPrice}</span><input type="hidden" id="soupid_" value="${Soup.SoupID}"></td>
+								<td><span class="unit-price" id="shopSoupPrice">&euro; ${Soup.SoupPrice}</span><input type="hidden" id="soupid_" value="${Soup.SoupID}"></td>
 							  	<td><input type="text" id="shopQuantity_${Soup.SoupID}"  size="3" value="${Soup.SoupQuantity}" alt="${Soup.SoupID}" onblur="reCalculate(this)"/></td>
 	                            <td style="text-align:left;"><a href="@{Application.shopRemoveSoup(Soup.SoupID)}">Remove</a></td>
-								<td style="text-align:right;"><span class="subtotal-price" id="souptotalprice_${Soup.SoupID}">€ ${Soup.getTotalPrice()}</span></td>
+								<td style="text-align:right;"><span class="subtotal-price" id="souptotalprice_${Soup.SoupID}">&euro; ${Soup.getTotalPrice()}</span></td>
 							</tr>
 							#{list items:Soup.IngredientList, as:'Ingredient'}
 								<tr class="even">
 									<td><img src="../public/images/Shoppingcart/sc_${Ingredient.IngImage}" alt="" height="100" width="200"/><br />${Ingredient.IngredientName}</td>
-									<td><span class="unit-price">€ ${Ingredient.IngredientPrice}</span></td>
+									<td><span class="unit-price">&euro; ${Ingredient.IngredientPrice}</span></td>
 								  	<td><!--<input type="text" id="shopingre"  size="3" value="1"/>--></td>
 		                            <td style="text-align:left;"><!--<a href="@{Application.shopRemoveIng(Soup.SoupID,Ingredient.IngredientID)}">Remove</a> --></td>
-									<td style="text-align:right;"><!--<span class="subtotal-price">€ ${Ingredient.IngredientPrice}</span> --></td>
+									<td style="text-align:right;"><!--<span class="subtotal-price">&euro; ${Ingredient.IngredientPrice}</span> --></td>
 								</tr>
 							#{/list}
 							<tr class="even"> 
 								<td><img src="@{'/public/images/Shoppingcart/sc_packsize.jpg'}" alt="" /><br />${Soup.SoupSize}</td>
 
 								#{if Soup.SoupSize == 'Small' }
-   									<td><span class="unit-price">€ 0.5</span></td>
+   									<td><span class="unit-price">&euro; 0.5</span></td>
 								#{/if}
 								#{elseif Soup.SoupSize == 'Medium'}
-								    <td><span class="unit-price">€ 1.5</span></td>
+								    <td><span class="unit-price">&euro; 1.5</span></td>
 								#{/elseif}
 								#{elseif Soup.SoupSize == 'Large'}
-								    <td><span class="unit-price">€ 3.0</span></td>
+								    <td><span class="unit-price">&euro; 3.0</span></td>
 								#{/elseif}
 								
 							  	<td><!--<input type="text"  size="3" value="1"/>--></td>
 	                            <td style="text-align:left;"><!--<a href="#">Remove</a>--></td>
-								<td style="text-align:right;"><!--<span class="subtotal-price">€ 0,00</span>--></td>
+								<td style="text-align:right;"><!--<span class="subtotal-price">&euro; 0,00</span>--></td>
 							</tr>
 						#{/list}					
 						</tbody>
 					</table>
                     <ul class="total">
                     	<li>Sub Total</li>
-                        <li id="finaltotal">€ ${objShoppingCart.getTotalPrice()}</li>
+                        <li id="finaltotal">&euro; ${objShoppingCart.getTotalPrice()}</li>
                     </ul>
 					<div id="con-butcart">
 						<span class="alignright"><a href="@{Application.checkout}" class="more but-green">Checkout</a></span>

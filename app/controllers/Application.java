@@ -271,7 +271,7 @@ public class Application extends Controller {
             Soups bs = Cache.get("soup_"+strid,Soups.class);
             if(bs.getSoupSize()== null)
             {
-                String errorMSG = "Please select a soup size ...";
+                String errorMSG = "Please select a soup size";
                 reload(errorMSG);
             }
             
@@ -293,10 +293,10 @@ public class Application extends Controller {
         }else if(Cache.get("ShoppingCart", ShoppingCart.class) != null){ //in case users wants to check the shopping cart
             objShoppingCart = Cache.get("ShoppingCart", ShoppingCart.class);
             render(objShoppingCart);
-            /*String errorMSG = "Please first make a soup ...";
+            /*String errorMSG = "Please first make a soup";
             reload(errorMSG);*/
         }else {
-            String errorMSG = "Shopping cart is empty. Please make a soup first ...";
+            String errorMSG = "Shopping cart is empty. Please make a soup first";
             reload(errorMSG);
         }
     }
