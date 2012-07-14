@@ -33,7 +33,7 @@
 		        		<div class="case_text">	
 		        			<h4 class="title">Please select Delivery service of your convinence</h4>		</br></br>			
 							<select>
-								<option value="1">DHL Express Delivery 5.90€</option>
+								<option value="1">DHL Express Delivery € 5.90</option>
 							</select>		
 							</br></br>
 							<h1>Our delivery time</h1>
@@ -77,10 +77,10 @@
 							<input type="text"  class="text-input" name="zipcode" value="${userinfo.ZipCode}" readonly="readonly"/><br />
 							<label>Street</label><br />
 							<input type="text"  class="text-input" name="street" value="${userinfo.Street}" readonly="readonly"/><br />
-<!-- 							<label>City</label><br /> -->
-<!-- 							<input type="text"  class="text-input" name="city" value="" /><br /> -->
-<!-- 							<label>Telephone</label><br /> -->
-<!-- 							<input type="text" class="text-input" name="telephone" value=""/><br /><br /> -->
+						    <!-- <label>City</label><br /> 
+ 						    <input type="text"  class="text-input" name="city" value="" /><br />
+                            <label>Telephone</label><br />
+ 						    <input type="text" class="text-input" name="telephone" value=""/><br /><br /> -->
 							
 							<ul class="button-cart">
 		            			<li><a id="deliverylink" href="" class="addtowishlistsl but-red">Next Step</a></li>
@@ -107,12 +107,13 @@
 								<label>Street</label><br />
 								<input type="text"  class="text-input" name="street" value="${flash.street}"/> *
 								<span class="errorClass" style="color:red">#{error 'street' /}</span><br />
-								<label>City</label><br />
+								<!-- <label>City</label><br />
 								<input type="text"  class="text-input" name="city" value="${flash.city}"/> *
 								<span class="errorClass" style="color:red">#{error 'city' /}</span><br />
 								<label>Telephone</label><br />
 								<input type="text" class="text-input" name="telephone" value="${flash.telephone}"/> *
 								<span class="errorClass" style="color:red">#{error 'telephone' /}</span><br /><br />
+								-->
 								
 								<ul class="button-cart">
 					            	<li><input type="button" class="button  but-red" value="Next Step" onclick="submit();"/>

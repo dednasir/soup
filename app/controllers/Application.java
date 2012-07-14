@@ -99,7 +99,7 @@ public class Application extends Controller {
     	
     	if(Cache.safeDelete("ShoppingCart")) {
     		session.remove("selectSlider");
-          	String completesg = "Thank You we have received your Order. You receive your soup within half hour";
+          	String completesg = "Thank you we have received your order.";
           	renderTemplate("@Application.index",completesg);
     	}else{
     		Cache.delete("ShoppingCart");
@@ -271,7 +271,7 @@ public class Application extends Controller {
             Soups bs = Cache.get("soup_"+strid,Soups.class);
             if(bs.getSoupSize()== null)
             {
-                String errorMSG = "Please Select A Soup Size.....";
+                String errorMSG = "Please select a soup size ...";
                 reload(errorMSG);
             }
             
@@ -293,10 +293,10 @@ public class Application extends Controller {
         }else if(Cache.get("ShoppingCart", ShoppingCart.class) != null){ //in case users wants to check the shopping cart
             objShoppingCart = Cache.get("ShoppingCart", ShoppingCart.class);
             render(objShoppingCart);
-            /*String errorMSG = "Please first Make A Soup.....";
+            /*String errorMSG = "Please first make a soup ...";
             reload(errorMSG);*/
         }else {
-            String errorMSG = "Shopping cart is empty. Please make a soup first ........";
+            String errorMSG = "Shopping cart is empty. Please make a soup first ...";
             reload(errorMSG);
         }
     }
