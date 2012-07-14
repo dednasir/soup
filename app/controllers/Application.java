@@ -104,7 +104,7 @@ public class Application extends Controller {
     	}else{
     		Cache.delete("ShoppingCart");
     		session.remove("selectSlider");
-    		String completesg = "oops there was an error in finishing session";
+    		String completesg = "Oops there was an error in finishing session.";
           	renderTemplate("@Application.index",completesg);
     	}
     }
@@ -334,7 +334,7 @@ public class Application extends Controller {
         String SoupID = session.get("basesoup");
         Soups cachedSoup = Cache.get("soup_"+SoupID,Soups.class);
         if(cachedSoup.RemoveIngredient(id)) {
-            String errorMSG = "Ingredient Removed Successfully";
+            String errorMSG = "Ingredient removed successfully";
             soups(errorMSG);
         }
     }
